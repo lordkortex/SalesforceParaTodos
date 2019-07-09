@@ -1,0 +1,11 @@
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\bin\Salesforce4all.dll
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\bin\Salesforce4all.pdb
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\bin\Salesforce4all.xml
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\bin\MySql.Data.dll
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.Resources.resources
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.GenerateResource.Cache
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.dll
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.xml
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.pdb
+E:\archivos cortes moncada\mis documentos\Visual Studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.ResolveComReference.cache
+e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbprojResolveAssemblyReference.cache
