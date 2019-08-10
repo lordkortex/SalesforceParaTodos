@@ -25,6 +25,8 @@
 
     <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
     <script src="scripts/image-picker.min.js" type="text/javascript"></script>
+    <script src="scripts/qrcode.min.js" type="text/javascript" ></script>
+    <!--<script src="scripts/jquery.min.js" type="text/javascript"></script>-->
 
     <style>
         .thumbnail {
@@ -96,6 +98,7 @@
 
 
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
 
       
         <!-- Navigation -->
@@ -383,7 +386,7 @@
                                                 <p class="card-text"><b>6.</b> Click on  <b>Print Preview</b></p>
                                         </li>
                                           <li>
-                                                <p class="card-text"><b>7.</b> It will open a new window with a url like this  <b><a target="_blank" href="https://trailhead.salesforce.com/credentials/certification-detail-print?searchString=003G000002S9aeZIAR">Verification Site</a></b></p>
+                                                <p class="card-text"><b>7.</b> It will open a new window with a url like this  <b><a target="_blank" href="https://trailhead.salesforce.com/credentials/certification-detail-print?searchString=1RKVx8wH2FPaPqe6hKA6%2FL3UlBFlTXO6bNEIZLkpqvmycVnnROWZuzeOnIaTCl1M">Verification Site</a></b></p>
                                         </li>
                                          <li>
                                                 <p class="card-text"><b>8.</b> Copy the searchString value at the end of url, it look like this:   <b>1RKVx8wH2FPaPqe6hKA6%2FL3UlBFlTXO6bNEIZLkpqvmycVnnROWZuzeOnIaTCl1M</b></p>
@@ -540,7 +543,7 @@
 
 
                    <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 3: Iframe</h5>
+                        <h5 class="card-header-salesforce">Step 5: Iframe</h5>
                         <div class="card-body">
                             <div class="row">
                                  <div class="col-lg-12">
@@ -561,6 +564,36 @@
                         </div>
                     </div>
 
+
+                 <div class="card my-4">
+                        <h5 class="card-header-salesforce">Step 6 : You can download your QR code for your certificates</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                
+                                <div class="col-lg-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            <b>QR: </b> 
+                                                  <asp:TextBox runat="server" id="textQr" class="form-control" placeholder=""></asp:TextBox>
+                                                  <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+                                        </li>
+                                        <li>
+                                        </li>
+                                    </ul>
+                                </div>
+                                 <div class="col-lg-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            <b>You can download a Qr code with link to Salesforce official site with your certificates. Make righ click over qr image and press Save image as option. Now you can share your QR code image at any location</b> 
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+                               
+                            </div>
+                                  
+                        </div>
+                    </div>
 
 
 
@@ -937,6 +970,21 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+   <script type="text/javascript">
+       var qrcode = new QRCode(document.getElementById("qrcode"), {
+           width: 100,
+           height: 100
+       });
+
+       function makeCode() {
+           var elText = document.getElementById("textQr");
+           qrcode.makeCode(elText.value);
+       }
+
+       makeCode();
+    </script>
 
 </body>
 </html>

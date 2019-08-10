@@ -22,6 +22,15 @@ Public Class _Default
         Dim textoIframe As String = "&lt;iframe src=&quot;http://salesforce4all.com//FrameCertificate.aspx?email=XXXXXXXXXX&amp;background=6&quot; width=&quot;1200&quot; height=&quot;320&quot; scrolling=&quot;no&quot; style=&quot;overflow:hidden;&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt; "
         LiteralIframe.Text = textoIframe.Replace("XXXXXXXXXX", email)
 
+        Dim salesforceSearchString As String = idSalesforce.Text 'Request.QueryString("salesforceSearchString")
+        'Dim salesforcePage = "https://trailhead.salesforce.com/credentials/certification-detail-print?searchString=" + salesforceSearchString
+        Dim salesforcePage = "http://salesforce4all.com/Qrpage.aspx?searchString=" + salesforceSearchString
+        textQr.Text = salesforcePage
+
+        textQr.Style.Add("display", "none")
+
+
+
 
         'If Not email Is Nothing And Not indexBackground Is Nothing Then
         '    Dim profileResponse As Profile = generatorService.getFabricJsScript(email, "", indexBackground)

@@ -138,4 +138,13 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LiteralIframe As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''textQr control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents textQr As Global.System.Web.UI.WebControls.TextBox
 End Class

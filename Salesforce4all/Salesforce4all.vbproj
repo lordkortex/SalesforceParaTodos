@@ -93,6 +93,7 @@
     <Content Include="FrameCertificate.aspx" />
     <Content Include="HtmlPage1.html" />
     <Content Include="HtmlPage2.html" />
+    <Content Include="Qrpage.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -153,6 +154,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Profile.vb" />
+    <Compile Include="Qrpage.aspx.designer.vb">
+      <DependentUpon>Qrpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Qrpage.aspx.vb">
+      <DependentUpon>Qrpage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

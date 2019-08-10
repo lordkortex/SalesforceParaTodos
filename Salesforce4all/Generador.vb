@@ -144,8 +144,16 @@ Public Class Generador
 
         scriptSalesforce += "window.location.href=""#drawZone"";"
 
+
+        'scriptSalesforce += "var qrcode = new QRCode(document.getElementById('qrcode'), {width : 100,height : 100});"
+        'scriptSalesforce += "qrcode.makeCode('https://trailhead.salesforce.com/credentials/certification-detail-print?searchString='" + idSalesforceInput + ");"
+        'scriptSalesforce += "qrcode.makeCode(https://google.com);"
+
+
         scriptSalesforce += " }"
 
+
+       
 
 
         scriptSalesforce += " function saveImg(){  "
