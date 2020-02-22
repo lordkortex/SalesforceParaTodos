@@ -103,6 +103,11 @@ Public Class DataBase
         Dim dsUsuario As New DataSet
         Dim dtUsuario As New DataTable
 
+        If certificates = "" Then
+            certificates = 0
+        End If
+
+
         sqlString = "INSERT INTO `a_salesforce_historico` (`name`, `city`, `state`, `country`, `certificates`, `consultingDate`, `email`,`link`,`source`) " + _
                                     "VALUES  ('" + name + "', '" + city + "', '" + state + "', '" + country + "', '" + certificates + "', NOW() , '" + email + "', '" + link + "', '" + source + "');"
         dsUsuario = mySqlDataR()

@@ -52,29 +52,23 @@ Public Class Generador
             'Este metodo se uso hasta el 10 05 de 2019 cuando salesforce cambio el searchstring con un encriptado, y cambio la estuctura e respuestas de un Json embebido en un xml
             'getDataHeaderNuevo(profileResponse)
 
-            getDataHeaderJsonV3(profileResponse)
+            'Este metodo se uso hasta el 18 02 de 2020 cuando salesforce cambio lo siguiente:
+            '       Dio de baja https://certification.secure.force.com/certificationsite/services/apexrest/credential?searchString=ZysMP5a/eGy8r5UFoze802gEOsC+v8XkX+GnJQs8R3Iqz/SB19zi4xXRttIFqvCF
+            '       Dio de baja http://certification.salesforce.com/verification-email?email=gpattersonm@gmail.com
+            'getDataHeaderJsonV3(profileResponse)
 
-           
-
+            getDataHeaderJsonV4(profileResponse)
         Catch ex As Exception
             db.insertHistorico(ex.Message, "", "", "", "", email, idSalesforce, source)
         End Try
 
-
-
         Dim scriptSalesforce As String = ""
-
         scriptSalesforce += " var canvas;"
-
         scriptSalesforce += " function codeAddress() {"
-
-
         scriptSalesforce += configurationPositionCertifiedScript
-
         scriptSalesforce += "  /*canvas = new fabric.Canvas('c', {"
         scriptSalesforce += "           isDrawingMode: true,"
         scriptSalesforce += "         });*/"
-
 
         scriptSalesforce += "var ContadorCertificates = " + contadorCertificates.ToString + ";"
         scriptSalesforce += "if( ContadorCertificates > 0) {document.getElementById(""drawZone"").setAttribute(""style"", ""display:block;""); } else  {document.getElementById(""drawZoneNoResuts"").setAttribute(""style"", ""display:block;""); }"
@@ -131,33 +125,18 @@ Public Class Generador
             scriptSalesforce += "left: 400,"
         End If
 
-
         scriptSalesforce += "top: 10"
         scriptSalesforce += "});"
-
-
-
         scriptSalesforce += "canvas.add(shadowText1);"
-
         scriptSalesforce += "canvas.renderAll();"
-
-
         scriptSalesforce += "window.location.href=""#drawZone"";"
-
 
         'scriptSalesforce += "var qrcode = new QRCode(document.getElementById('qrcode'), {width : 100,height : 100});"
         'scriptSalesforce += "qrcode.makeCode('https://trailhead.salesforce.com/credentials/certification-detail-print?searchString='" + idSalesforceInput + ");"
         'scriptSalesforce += "qrcode.makeCode(https://google.com);"
 
-
         scriptSalesforce += " }"
-
-
-       
-
-
         scriptSalesforce += " function saveImg(){  "
-
         scriptSalesforce += "console.log('export image');"
         scriptSalesforce += "if (!fabric.Canvas.supports('toDataURL')) {"
         scriptSalesforce += "       alert('This browser doesn\'t provide means to serialize canvas to an image');"
@@ -177,12 +156,99 @@ Public Class Generador
         scriptSalesforce += "}"
         scriptSalesforce += "}"
 
-
         profileResponse.cScript = scriptSalesforce
 
         Return profileResponse
 
     End Function
+
+    Public Function getDataHeaderJsonV4(ByRef profileResponse As Profile)
+        Dim AuthorList As New List(Of Profile)()
+        Dim tmpResponse As String = ""
+
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
+        Dim request As HttpWebRequest = HttpWebRequest.Create("https://drm.secure.force.com/services/apexrest/credential?searchString=" + idSalesforce)
+        request.Method = WebRequestMethods.Http.Get
+
+        Dim response As Net.HttpWebResponse = request.GetResponse()
+        Dim reader As New StreamReader(response.GetResponseStream())
+        tmpResponse = reader.ReadToEnd()
+        'tmpResponse = "<response>
+        '<GetResponse:data>
+        '<GetResponse:jsonResponse>
+        '{ "data" : [ { "Name" : "GARY PATTERSON", "City" : "Saratoga Springs", "State" : "US-UT", "Country" : "US", "MappingKey" : "jZTniBMAMhMPe37hzEhXIHToWcRwVhqWBbBeWYscg8tYnNviizrEqeg1u1YO8aJ1", "RelatedCertificationStatus" : { "totalSize" : 3, "records" : [ { "ExternalCertificationTypeName" : "Salesforce Certified Field Service Lightning Consultant", "CertificationDate" : "February 21, 2020", "RelatedCertificationType" : { "Image" : "https://drm--c.na114.content.force.com/servlet/servlet.ImageServer?id=0153k00000AH6io&oid=00DF0000000gZsu&lastMod=1571904711000" } }, { "ExternalCertificationTypeName" : "Salesforce Certified Service Cloud Consultant", "CertificationDate" : "October 29, 2019", "RelatedCertificationType" : { "Image" : "https://drm--c.na114.content.force.com/servlet/servlet.ImageServer?id=0153k00000AH6sA&oid=00DF0000000gZsu&lastMod=1571915344000" } }, { "ExternalCertificationTypeName" : "Salesforce Certified Administrator", "CertificationDate" : "May 29, 2019", "RelatedCertificationType" : { "Image" : "https://drm--c.na114.content.force.com/servlet/servlet.ImageServer?id=0153k00000AH6hb&oid=00DF0000000gZsu&lastMod=1571903578000" } } ] } } ] }
+        '</GetResponse:jsonResponse>
+        '</GetResponse:data>
+        '</response>"
+        response.Close()
+
+        'Dim MyExpression1 As String = "<GetResponse:jsonResponse>(.*?)</GetResponse:jsonResponse>"
+        'Dim Tables1 As MatchCollection = Regex.Matches(tmpResponse, MyExpression1, RegexOptions.Multiline Or RegexOptions.Singleline Or RegexOptions.IgnoreCase)
+
+        'Crear el arreglo de usuarios encontrados
+        'For Each matchTable In Tables1
+        Dim serializer = New JavaScriptSerializer()
+        Dim certificateResultWrapper As RootObject = serializer.Deserialize(Of RootObject)(tmpResponse)
+
+        Dim db As DataBase = New DataBase()
+
+        If certificateResultWrapper.errorCode Is Nothing And certificateResultWrapper.errorMessage Is Nothing And certificateResultWrapper.status = "success" Then
+
+            Dim jsconResponse = certificateResultWrapper.data(0).jsonResponse
+            Dim certificadoEncabezadoItem As RootObjectJson = serializer.Deserialize(Of RootObjectJson)(jsconResponse)
+            Dim certificadoEncabezado As DatumJson = certificadoEncabezadoItem.data(0)
+
+            Dim perfil As New Profile
+            perfil.cName = certificadoEncabezado.Name
+            perfil.cCity = certificadoEncabezado.City
+            perfil.cState = certificadoEncabezado.State
+            perfil.cCountry = certificadoEncabezado.Country
+
+            Dim certificacionDetail As RelatedCertificationStatus = certificadoEncabezado.RelatedCertificationStatus
+            Dim certificacionDetailRecord As List(Of Record) = certificacionDetail.records
+
+            perfil.cCertificates = certificacionDetail.totalSize
+            perfil.cLink = idSalesforce
+
+            accreditedNumber = 0 'PENDIENTE
+            certificatesNumber = certificacionDetail.totalSize
+            contadorCertificates = certificacionDetail.totalSize
+
+            'Borra de la base de datos el detalle de certificados
+            db.deleteDetail(email)
+
+            'Consultar si tenia un link anterior
+            Dim dsCurrentRecord As DataSet = db.selectHeader(email)
+            Dim dtCurrentRecord As DataTable = dsCurrentRecord.Tables(0)
+            For Each row As DataRow In dtCurrentRecord.Rows
+                perfil.cLink = row.Field(Of String)("link")
+            Next
+
+            Dim Sql As String = ""
+            Dim contadorBadges = 0
+            imagesCertifiedScript = ""
+            For Each certificate In certificacionDetailRecord
+                contadorBadges += 1
+                imagesCertifiedScript += getImageFabricJSString(certificate.ExternalCertificationTypeName, contadorBadges)
+                Sql += db.createSqlInsertDetail(email, certificate.ExternalCertificationTypeName, certificate.CertificationDate, certificate.RelatedCertificationType.Image, perfil.cLink)
+            Next
+
+            db.insertHeader(perfil.cName, perfil.cCity, perfil.cState, perfil.cCountry, perfil.cCertificates, email, perfil.cLink, source)
+            db.insertDetail(Sql, email)
+            db.insertHistorico(perfil.cName, perfil.cCity, perfil.cState, perfil.cCountry, perfil.cCertificates, email, idSalesforce, source)
+
+            profileResponse = perfil
+            configurationPositionCertifiedScript = getPositionScript(contadorCertificates)
+        Else
+            getDataHeaderDatabase(profileResponse)
+        End If
+        'Next
+
+
+
+    End Function
+
     Public Function getDataHeaderHtml(ByRef profileResponse As Profile)
         Dim AuthorList As New List(Of Profile)()
 
@@ -192,12 +258,14 @@ Public Class Generador
         Dim strnombre As String = ""
 
         Dim certificateResultWrapper As New RootObject '= serializer.Deserialize(Of RootObject)(tmpResponse)
+
+        'From 10-02-2020 Salesforce has down the site
         Dim certificadoEncabezado As DatumJson = getDataHeaderNamesHtmlV4(profileResponse)
+        'From 10-02-2020 Salesforce has down the site
         Dim certificacionDetail As RelatedCertificationStatus = getDataHeaderCertificatesHtmlV4(profileResponse)
 
-
         certificateResultWrapper.status = "success"
-        If certificacionDetail.totalSize  = 0 Then
+        If certificacionDetail.totalSize = 0 Then
             certificateResultWrapper.status = "no data"
         End If
 
@@ -206,10 +274,13 @@ Public Class Generador
         If certificateResultWrapper.errorCode Is Nothing And certificateResultWrapper.errorMessage Is Nothing And certificateResultWrapper.status = "success" Then
 
             Dim perfil As New Profile
-            perfil.cName = certificadoEncabezado.Name
-            perfil.cCity = certificadoEncabezado.City
-            perfil.cState = certificadoEncabezado.State
-            perfil.cCountry = certificadoEncabezado.Country
+
+            perfil.cName = profileResponse.cEmail
+
+            'perfil.cName = certificadoEncabezado.Name
+            'perfil.cCity = certificadoEncabezado.City
+            'perfil.cState = certificadoEncabezado.State
+            'perfil.cCountry = certificadoEncabezado.Country
 
             perfil.cCertificates = certificacionDetail.totalSize
             perfil.cLink = idSalesforce
@@ -335,6 +406,7 @@ Public Class Generador
 
         Dim tmp As String = ""
 
+        'From 18/02/2020 this ulr was shut down by salesforce
         Dim request As HttpWebRequest = HttpWebRequest.Create("http://certification.salesforce.com/certification-detail-print?conId=" + idSalesforce)
 
         request.Method = WebRequestMethods.Http.Get
@@ -509,7 +581,7 @@ Public Class Generador
             profileResponse = perfil
             configurationPositionCertifiedScript = getPositionScript(contadorCertificates)
         Else
-            'getDataHeaderDatabase(profileResponse)
+            getDataHeaderDatabase(profileResponse)
             getDataHeaderHtml(profileResponse)
 
         End If
@@ -748,7 +820,6 @@ Public Class Generador
 
     End Function
 
-
     Public Function getCertificationDataDetail(ByVal linkDetalle As String) As Integer
 
 
@@ -834,7 +905,6 @@ Public Class Generador
 
 
     End Function
-
 
     Public Function HacerLlamadoWebManual(ByVal innerHtmlTorneo As String, ByRef Serror As String, ByVal tag As String) As IHTMLElementCollection
 

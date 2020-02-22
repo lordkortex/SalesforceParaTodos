@@ -752,7 +752,8 @@
         <img src="Images/Certificates/.cert-badge.Accredited.Sales.Professional.jpg" id="Accredited Sales Professional" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Accredited.Presales.Professional.jpg" id="Accredited Presales Professional" style="display: none;">
           <img src="Images/Certificates/.cert-badge.Certified.Nonprofit.Cloud.Consultant.jpg" id="Certified Nonprofit Cloud Consultant" style="display: none;">
-
+          <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
+      
 
        <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id=".cert-badge.Certified.Administrator" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator.jpg" id=".cert-badge.Certified.Advanced.Administrator" style="display: none;">

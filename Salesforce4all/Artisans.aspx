@@ -562,7 +562,8 @@
         <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Einstein.Analytics.Discovery.Consultant.png" id="Salesforce Certified Einstein Analytics and Discovery Consultant" style="display: none;">
       <img src="Images/Certificates/.cert-badge.Certified.Education.Cloud.Consultant.jpg " id="Salesforce Certified Education Cloud Consultant" style="display: none;">
-     
+       <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
+      
    <img src="Images/Certificates/.cert-badge.Certified.Heroku.Architecture.Designer.png" id="Salesforce Certified Heroku Architecture Designer" style="display: none;">
      
 

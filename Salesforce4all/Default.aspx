@@ -826,6 +826,8 @@
         <img src="Images/Certificates/.cert-badge.Accredited.Presales.Professional.jpg" id="Accredited Presales Professional" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Nonprofit.Cloud.Consultant.jpg" id="Salesforce Certified Nonprofit Cloud Consultant" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
+        
         <img src="Images/Certificates/.cert-badge.Certified.Einstein.Analytics.Discovery.Consultant.png" id="Salesforce Certified Einstein Analytics and Discovery Consultant" style="display: none;">
      
         <img src="Images/Certificates/.cert-badge.Certified.Education.Cloud.Consultant.jpg " id="Salesforce Certified Education Cloud Consultant" style="display: none;">
