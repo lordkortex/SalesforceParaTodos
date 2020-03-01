@@ -158,6 +158,7 @@
            <img src="Images/Certificates/.cert-badge.Certified.Education.Cloud.Consultant.jpg " id="Salesforce Certified Education Cloud Consultant" style="display: none;">
      
            <img src="Images/Certificates/.cert-badge.Certified.Heroku.Architecture.Designer.png" id="Salesforce Certified Heroku Architecture Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
      
 
       <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id="Certified Administrator" style="display: none;">

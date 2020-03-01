@@ -565,7 +565,8 @@
        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
       
    <img src="Images/Certificates/.cert-badge.Certified.Heroku.Architecture.Designer.png" id="Salesforce Certified Heroku Architecture Designer" style="display: none;">
-     
+      <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
+         
 
       <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id="Certified Administrator" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator.jpg" id="Certified Advanced Administrator" style="display: none;">
