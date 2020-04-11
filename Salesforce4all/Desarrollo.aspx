@@ -757,6 +757,7 @@
          <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpeg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
         <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
+      <img src="Images/Certificates/Salesforce Certified B2C Commerce Architect.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
      
 
        <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id=".cert-badge.Certified.Administrator" style="display: none;">
