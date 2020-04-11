@@ -543,6 +543,7 @@
         <img src="Images/Certificates/.cert-badge.Certified.Programmer.I.jpg" id="Salesforce Certified Platform Developer I" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Programmer.II.jpg" id="Salesforce Certified Platform Developer II" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Salesforce Certified Data Architecture & Management Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Salesforce Certified Data Architecture and Management Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist.jpg" id="Salesforce Certified Development Lifecycle and Deployment Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Integration.Architecture.Specialist.jpg" id="Salesforce Certified Integration Architecture Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Consultant.jpg" id="Salesforce Certified Marketing Cloud Consultant" style="display: none;">
@@ -552,8 +553,6 @@
         <img src="Images/Certificates/.cert-badge.Certified.Mobile.Solutions.Architecture.Designer.jpg" id="Salesforce Certified Mobile Solutions Architecture Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Community.Cloud.Consultant.jpg" id="Salesforce Certified Community Cloud Consultant" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.CPQ.Specialist.jpg" id="Salesforce Certified CPQ Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Developer.jpg" id="Salesforce Certified B2C Commerce Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Technical.Solution.Designer.jpg" id="Salesforce Certified B2C Technical Solution Designer" style="display: none;">
       <%--  <img src="Images/Certificates/.cert-badge.Certified.Commerce.Cloud.Digital.Developer.jpg" id="YaNoExiste1" style="display: none;">
       --%>  
         <img src="Images/Certificates/.cert-badge.Accredited.Sales.Professional.jpg" id="Accredited Sales Professional" style="display: none;">
@@ -561,12 +560,18 @@
         <img src="Images/Certificates/.cert-badge.Certified.Nonprofit.Cloud.Consultant.jpg" id="Salesforce Certified Nonprofit Cloud Consultant" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Einstein.Analytics.Discovery.Consultant.png" id="Salesforce Certified Einstein Analytics and Discovery Consultant" style="display: none;">
-      <img src="Images/Certificates/.cert-badge.Certified.Education.Cloud.Consultant.jpg " id="Salesforce Certified Education Cloud Consultant" style="display: none;">
-       <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Education.Cloud.Consultant.jpg " id="Salesforce Certified Education Cloud Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
       
-   <img src="Images/Certificates/.cert-badge.Certified.Heroku.Architecture.Designer.png" id="Salesforce Certified Heroku Architecture Designer" style="display: none;">
-      <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Heroku.Architecture.Designer.png" id="Salesforce Certified Heroku Architecture Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
          
+        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
+        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
+        <img src="Images/Certificates/Salesforce Certified B2C Commerce Architect.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Developer.jpg" id="Salesforce Certified B2C Commerce Developer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Technical.Solution.Designer.jpg" id="Salesforce Certified B2C Technical Solution Designer" style="display: none;">
+ 
 
       <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id="Certified Administrator" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator.jpg" id="Certified Advanced Administrator" style="display: none;">

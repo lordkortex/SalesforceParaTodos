@@ -739,6 +739,7 @@
         <img src="Images/Certificates/.cert-badge.Certified.Programmer.I.jpg" id="Certified Programmer I" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Programmer.II.jpg" id="Certified Programmer II" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Certified Data Architecture and Management Specialist" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Salesforce Certified Data Architecture and Management Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist.jpg" id="Certified Development Lifecycle and Deployment Specialist" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Integration.Architecture.Specialist.jpg" id="Certified Integration Architecture Specialist" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Consultant.jpg" id="Certified Marketing Cloud Consultant" style="display: none;">
@@ -754,6 +755,8 @@
           <img src="Images/Certificates/.cert-badge.Certified.Nonprofit.Cloud.Consultant.jpg" id="Certified Nonprofit Cloud Consultant" style="display: none;">
           <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
          <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpeg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
+       <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
+        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
      
 
        <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id=".cert-badge.Certified.Administrator" style="display: none;">

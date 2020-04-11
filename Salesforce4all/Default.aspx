@@ -808,6 +808,7 @@
         <img src="Images/Certificates/.cert-badge.Certified.Programmer.I.jpg" id="Salesforce Certified Platform Developer I" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Programmer.II.jpg" id="Salesforce Certified Platform Developer II" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Salesforce Certified Data Architecture & Management Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Salesforce Certified Data Architecture and Management Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist.jpg" id="Salesforce Certified Development Lifecycle and Deployment Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Integration.Architecture.Specialist.jpg" id="Salesforce Certified Integration Architecture Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Consultant.jpg" id="Salesforce Certified Marketing Cloud Consultant" style="display: none;">
@@ -837,7 +838,13 @@
         <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
           
         
-
+        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
+        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
+        <img src="Images/Certificates/Salesforce Certified B2C Commerce Architect.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
+     
+        
+         <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpg" id="Img2" style="display: none;">
+        
 
 
         <%--  Se usaron hasta 11/05/2019 cuando salesforce cambio la estructuura de las respuestas xml a json y encripto el id de salesforce de la cuenta y cambio los nombres de los certificados en las respuestas
