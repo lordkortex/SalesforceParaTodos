@@ -273,7 +273,8 @@
                         <div class="card-body">
                             <div class="picker">
                                 <select runat="server" title="Selecciona tu imagen preferida" class="image-picker show-labels show-html" id="imageSelected"  style="display: none">
-                                   
+                                    <option data-img-src='Images/12/Custom.png' value='ImgCustom'>Custom</option>
+
                                     <option data-img-src='Images/12/header-bg-1.png' value='header-bg-1'>Cabin</option>
                                     <option data-img-src='Images/12/header-bg-2.png' value='header-bg-2'>Morning</option>
                                     <option data-img-src='Images/12/header-bg-3.png' value='header-bg-3'>Sun</option>
@@ -300,7 +301,7 @@
                                     <option data-img-src='Images/12/header-bg-15.png' value='header-bg-15'>Red Carpet</option>
                                     <option data-img-src='Images/12/header-bg-16.png' value='header-bg-16'>Bridge</option>
                
-                                    <option data-img-src='Images/12/Custom.png' value='ImgCustom'>Custom</option>
+                                 
                             
                                    </select>
                             </div>
@@ -456,7 +457,7 @@
                                  <div class="col-lg-6">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <b>Id Salesforce: Follow instructions in Step 2 to get this value</b> 
+                                            <b>Id Salesforce: Follow instructions in Step 3 to get this value</b> 
                                         </li>
                                         <li>
                                            <asp:TextBox runat="server" ID="idSalesforce" class="form-control" placeholder="Example: 1RKVx8wH2FPaPqe6hKA6%2FL3UlBFlTXO6bNEIZLkpqvmycVnnROWZuzeOnIaTCl1M"></asp:TextBox>

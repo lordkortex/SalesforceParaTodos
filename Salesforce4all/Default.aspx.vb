@@ -120,6 +120,8 @@ Public Class _Default
    
     Protected Sub UploadFile(sender As Object, e As EventArgs) Handles btnUpload.Click
 
+        LabelUpload.Text = ""
+
         If FileUpload1.FileName <> "" Then
             Dim folderPath As String = Server.MapPath("~/Images/12/")
             Dim folderPathUser As String = Server.MapPath("~/Images/12/user/")
@@ -133,6 +135,15 @@ Public Class _Default
                     'If Directory (Folder) does not exists Create it.
                     Directory.CreateDirectory(folderPath)
                 End If
+
+                Try
+                    Dim folderPathDelete As String = Server.MapPath("~/Images/12/")
+                    Dim path1 As String = folderPathDelete & "Custom.png"
+                    Dim myfileinf As New FileInfo(path1)
+                    myfileinf.Delete()
+                Catch ex As Exception
+
+                End Try
 
                 'Save the File to the Directory (Folder).
                 'FileUpload1.SaveAs(folderPathUser & Path.GetFileName(FileUpload1.FileName))
