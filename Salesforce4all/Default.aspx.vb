@@ -30,17 +30,17 @@ Public Class _Default
 
         textQr.Style.Add("display", "none")
 
+        Try
+            Dim folderPath As String = Server.MapPath("~/Images/12/")
+            Dim path1 As String = folderPath & "Custom.png"
+            Dim myfileinf As New FileInfo(path1)
+            myfileinf.Delete()
+        Catch ex As Exception
 
+        End Try
 
         If Not Page.IsPostBack Then
-            Try
-                Dim folderPath As String = Server.MapPath("~/Images/12/")
-                Dim path1 As String = folderPath & "Custom.png"
-                Dim myfileinf As New FileInfo(path1)
-                myfileinf.Delete()
-            Catch ex As Exception
-
-            End Try
+       
 
         End If
 
