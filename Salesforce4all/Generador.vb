@@ -32,7 +32,7 @@ Public Class Generador
     Dim rowsImages As Integer = 0
 
 
-    Public Function getFabricJsScript(ByVal emailInput As String, ByVal sourceInput As String, ByVal imageBacgroundIndexInput As String, ByVal isFreeSelectedIndex As String, ByVal idSalesforceInput As String, ByVal isDatabaseQuery As Boolean) As Profile
+    Public Function getFabricJsScript(ByVal emailInput As String, ByVal sourceInput As String, ByVal imageBacgroundIndexInput As String, ByVal isFreeSelectedIndex As String, ByVal idSalesforceInput As String, ByVal isDatabaseQuery As Boolean, ByVal selectedColor As String) As Profile
         'Dim dbd As DataBase = New DataBase()
         'dbd.normalizarHeader()
 
@@ -78,7 +78,6 @@ Public Class Generador
         scriptSalesforce += "var imgElement;"
         scriptSalesforce += "var imgInstance;"
 
-        'scriptSalesforce += "var color = 'rgba(0,0,0,1)';"
         scriptSalesforce += "var color = 'rgba(255,255,255,1)';"
         If isFreeSelectedIndex Then
             scriptSalesforce += "var imagenBack = document.getElementById(""imageSelected"").options[document.getElementById(""imageSelected"").selectedIndex].value;"
@@ -87,7 +86,9 @@ Public Class Generador
 
         End If
 
-        scriptSalesforce += "if(imagenBack == 'header-bg-1' || imagenBack == 'header-bg-8' || imagenBack == 'header-bg-12 ' || imagenBack == 'header-bg-14' ){color = 'rgba(0,0,0,1)'; }"
+        If selectedColor <> "" Then
+            scriptSalesforce += "color =  '" + selectedColor + "';"
+        End If
 
         scriptSalesforce += "imgElement = document.getElementById(imagenBack);"
         scriptSalesforce += "imgInstance = new fabric.Image(imgElement, {"
@@ -155,6 +156,14 @@ Public Class Generador
         scriptSalesforce += "}"
         scriptSalesforce += "}"
         scriptSalesforce += "}"
+
+
+        'scriptSalesforce += "color =  document.getElementById(""chosen-value"").value;"
+        'scriptSalesforce += "color = '#' + document.getElementById(""chosen-value"").value;"
+        'scriptSalesforce += "color = '#00ff0a';"
+        'scriptSalesforce += "color =  ""'"" + document.getElementById(""chosen-value"").value + ""'"" ;"
+        'scriptSalesforce = "color =  ' document.getElementById(""chosen-value"").value ';"
+
 
         profileResponse.cScript = scriptSalesforce
 

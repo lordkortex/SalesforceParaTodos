@@ -26,7 +26,7 @@
             LiteralIframe.Text = textoIframe.Replace("XXXXXXXXXX", idSalesforceQuery)
 
 
-            Dim profileResponse As Profile = generatorService.getFabricJsScript(emailQuery, source, imageSelected.SelectedIndex, True, idSalesforceQuery, True)
+            Dim profileResponse As Profile = generatorService.getFabricJsScript(emailQuery, source, imageSelected.SelectedIndex, True, idSalesforceQuery, True, "")
             lblName.Text = profileResponse.cName
             lblCity.Text = profileResponse.cCity
             lblCountry.Text = profileResponse.cCountry
@@ -50,7 +50,7 @@
                 LiteralIframe.Text = textoIframe.Replace("XXXXXXXXXX", email.Text)
 
 
-                Dim profileResponse As Profile = generatorService.getFabricJsScript(email.Text, source, imageSelected.SelectedIndex, False, idSalesforce.Text, False)
+                Dim profileResponse As Profile = generatorService.getFabricJsScript(email.Text, source, imageSelected.SelectedIndex, False, idSalesforce.Text, False, "")
                 lblName.Text = profileResponse.cName
                 lblCity.Text = profileResponse.cCity
                 lblCountry.Text = profileResponse.cCountry
@@ -82,7 +82,7 @@
 
         'Dim email As String = Request.QueryString("email")
 
-        Dim profileResponse As Profile = generatorService.getFabricJsScript(email.Text, source, imageSelected.SelectedIndex, False, idSalesforce.Text, False)
+        Dim profileResponse As Profile = generatorService.getFabricJsScript(email.Text, source, imageSelected.SelectedIndex, False, idSalesforce.Text, False, "")
         lblName.Text = profileResponse.cName
         lblCity.Text = profileResponse.cCity
         lblCountry.Text = profileResponse.cCountry

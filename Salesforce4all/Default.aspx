@@ -18,15 +18,19 @@
         gtag('config', 'UA-109851018-1');
     </script>
 
-
+   
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/image-picker.css">
+
+    <script src="scripts/jscolor.js"></script>
 
     <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
     <script src="scripts/image-picker.min.js" type="text/javascript"></script>
     <script src="scripts/qrcode.min.js" type="text/javascript" ></script>
     <!--<script src="scripts/jquery.min.js" type="text/javascript"></script>-->
+
+
 
     <style>
         .thumbnail {
@@ -94,12 +98,10 @@
 <%--    https://startbootstrap.com/template-overviews/modern-business/--%>
 
 <body onload="javascript:codeAddress();">
+
     <form id="form1" runat="server">
 
-
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
-
       
         <!-- Navigation -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -263,10 +265,15 @@
 
 
              <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 1 : Choose your favorite design !!!</h5>
+                        <h5 class="card-header-salesforce">Step 1 : Choose your favorite design !!! </h5>
+             <hr />
+                <!--<asp:Image ID="Image1" runat="server" Height = "100" Width = "100" />-->
+
+
                         <div class="card-body">
                             <div class="picker">
                                 <select runat="server" title="Selecciona tu imagen preferida" class="image-picker show-labels show-html" id="imageSelected"  style="display: none">
+                                   
                                     <option data-img-src='Images/12/header-bg-1.png' value='header-bg-1'>Cabin</option>
                                     <option data-img-src='Images/12/header-bg-2.png' value='header-bg-2'>Morning</option>
                                     <option data-img-src='Images/12/header-bg-3.png' value='header-bg-3'>Sun</option>
@@ -293,11 +300,23 @@
                                     <option data-img-src='Images/12/header-bg-15.png' value='header-bg-15'>Red Carpet</option>
                                     <option data-img-src='Images/12/header-bg-16.png' value='header-bg-16'>Bridge</option>
                
+                                    <option data-img-src='Images/12/Custom.png' value='ImgCustom'>Custom</option>
                             
                                    </select>
                             </div>
+
+                                <h5 class="card-header-salesforce"> ... if you don't like any ... upload your own. If you choose a Custom design we recomend this size : 1500 x 320 pixeles with .png extension </h5>
+                                <br />
+                                <asp:FileUpload ID="FileUpload1" runat="server"  />
+                                <asp:Button BackColor="Tomato" class="btn btn-primary" type="button" ID="btnUpload" runat="server" Text="Upload Image" OnClick="UploadFile" />
+                              
+                                <br />
+                                <asp:Label ID="LabelUpload" runat="server" ForeColor ="Red" Font-Bold="true"  ></asp:Label>
+                                <asp:Label ID="Label1" runat="server" ForeColor ="Black" Font-Bold="true"  > </asp:Label>
+                         
                         </div>
                     </div>
+
             <%--
                     <div class="card my-4">
                         <h5 class="card-header-salesforce">Step 2 : Choose your certificates !!!</h5>
@@ -352,9 +371,22 @@
                     </div>
                --%>
              
+                    <div class="card my-4">
+                        <h5 class="card-header-salesforce">Step 2 : Select your title text color </h5>
+                        <div class="card-body">
+                            <button data-jscolor="{valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+		                        Pick text color
+	                        </button>
+	                        
+                            <!--HEX value: <input id="chosen-value" value="000000">
+                             HEX value: <input id="Text1c" value="000000">
+                               -->
+                        </div>
+                    </div>
+
           
                      <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 2: Search your salesforce account id</h5>
+                        <h5 class="card-header-salesforce">Step 3: Search your salesforce account id</h5>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -407,7 +439,7 @@
                     </div>
 
              <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 3 : Search your salesforce certificates by your ID associated to your salesforce account on webassesor</h5>
+                        <h5 class="card-header-salesforce">Step 4 : Search your salesforce certificates by your ID associated to your salesforce account on webassesor</h5>
                         <div class="card-body">
                             <div class="row">
                                 
@@ -450,7 +482,7 @@
              <div id="drawZoneNoResuts" style ="display:none" >
 
                     <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 3: Results</h5>
+                        <h5 class="card-header-salesforce">Step 4: Results</h5>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -503,7 +535,7 @@
             <div id="drawZone" style ="display:none" >
 
                   <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 4: Results</h5>
+                        <h5 class="card-header-salesforce">Step 5: Results</h5>
                         <div class="card-body">
                             <div class="row">
                                  <div class="col-lg-6">
@@ -543,7 +575,7 @@
 
 
                    <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 5: Iframe</h5>
+                        <h5 class="card-header-salesforce">Step 6: Iframe</h5>
                         <div class="card-body">
                             <div class="row">
                                  <div class="col-lg-12">
@@ -566,7 +598,7 @@
 
 
                  <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 6 : You can download your QR code for your certificates</h5>
+                        <h5 class="card-header-salesforce">Step 7: You can download your QR code for your certificates</h5>
                         <div class="card-body">
                             <div class="row">
                                 
@@ -742,7 +774,7 @@
                 </div>
               </div>
 
-
+                <asp:TextBox runat="server" ID="TextBoxColor" Width="1"></asp:TextBox>
                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
             <hr>
@@ -763,8 +795,10 @@
       <!-- /.container -->
     </footer>
 
-  
-
+      
+      
+        <img src="Images/12/Custom.png" id="ImgCustom" style="display: none;">
+        
         <img src="Images/Original/header-bg-1.png" id="header-bg-1" style="display: none;">
         <img src="Images/Original/header-bg-2.png" id="header-bg-2" style="display: none;">
         <img src="Images/Original/header-bg-3.png" id="header-bg-3" style="display: none;">
@@ -985,6 +1019,16 @@
 
        makeCode();
     </script>
+
+    <script>
+    	    function setTextColor(picker) {
+    	        //document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
+    	        //document.getElementById("Text1c").value = '#' + picker.toString();
+    	        document.getElementById("TextBoxColor").value = '#' + picker.toString();
+    	        
+    	    }
+	</script>
+
 
 </body>
 </html>

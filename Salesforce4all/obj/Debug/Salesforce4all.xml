@@ -311,9 +311,49 @@ ScriptManager1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Salesforce4all._Default.Image1">
+	<summary>
+Image1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Salesforce4all._Default.imageSelected">
 	<summary>
 imageSelected control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Salesforce4all._Default.FileUpload1">
+	<summary>
+FileUpload1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Salesforce4all._Default.btnUpload">
+	<summary>
+btnUpload control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Salesforce4all._Default.LabelUpload">
+	<summary>
+LabelUpload control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Salesforce4all._Default.Label1">
+	<summary>
+Label1 control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -402,6 +442,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Salesforce4all._Default.textQr">
 	<summary>
 textQr control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Salesforce4all._Default.TextBoxColor">
+	<summary>
+TextBoxColor control.
 </summary>
 	<remarks>
 Auto-generated field.
