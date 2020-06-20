@@ -31,6 +31,18 @@ Public Class Generador
 
     Dim rowsImages As Integer = 0
 
+    Public Function goToDrawZone() As Profile
+        Dim profileResponse As New Profile()
+        profileResponse.cScript = "window.location.href=""#drawGenerateButtonSection"";"
+        Return profileResponse
+    End Function
+
+    Public Function goToDrawZoneUpload() As Profile
+        Dim profileResponse As New Profile()
+        profileResponse.cScript = "window.location.href=""#drawZoneUploadFile"";"
+        Return profileResponse
+    End Function
+
 
     Public Function getFabricJsScript(ByVal emailInput As String, ByVal sourceInput As String, ByVal imageBacgroundIndexInput As String, ByVal isFreeSelectedIndex As String, ByVal idSalesforceInput As String, ByVal isDatabaseQuery As Boolean, ByVal selectedColor As String) As Profile
         'Dim dbd As DataBase = New DataBase()
@@ -64,20 +76,29 @@ Public Class Generador
 
         Dim scriptSalesforce As String = ""
         scriptSalesforce += " var canvas;"
+        scriptSalesforce += " var imgInstanceBack;"
+        scriptSalesforce += " var shadowText1;"
+        'scriptSalesforce += " var imgInstanceGrid;"
+    
         scriptSalesforce += " function codeAddress() {"
         scriptSalesforce += configurationPositionCertifiedScript
         scriptSalesforce += "  /*canvas = new fabric.Canvas('c', {"
-        scriptSalesforce += "           isDrawingMode: true,"
+        scriptSalesforce += "           isDrawingMode: false"
         scriptSalesforce += "         });*/"
 
         scriptSalesforce += "var ContadorCertificates = " + contadorCertificates.ToString + ";"
         scriptSalesforce += "if( ContadorCertificates > 0) {document.getElementById(""drawZone"").setAttribute(""style"", ""display:block;""); } else  {document.getElementById(""drawZoneNoResuts"").setAttribute(""style"", ""display:block;""); }"
 
-        scriptSalesforce += "canvas = new fabric.Canvas('c');"
+        'scriptSalesforce += "canvas = new fabric.Canvas('c');"
 
-        scriptSalesforce += "var imgElement;"
-        scriptSalesforce += "var imgInstance;"
+        scriptSalesforce += "  canvas = new fabric.Canvas('c', {"
+        scriptSalesforce += "           preserveObjectStacking: true"
+        scriptSalesforce += "         });"
 
+        scriptSalesforce += " var imgElement;"
+        scriptSalesforce += " var imgInstance;"
+
+     
         scriptSalesforce += "var color = 'rgba(255,255,255,1)';"
         If isFreeSelectedIndex Then
             scriptSalesforce += "var imagenBack = document.getElementById(""imageSelected"").options[document.getElementById(""imageSelected"").selectedIndex].value;"
@@ -90,12 +111,21 @@ Public Class Generador
             scriptSalesforce += "color =  '" + selectedColor + "';"
         End If
 
+
         scriptSalesforce += "imgElement = document.getElementById(imagenBack);"
-        scriptSalesforce += "imgInstance = new fabric.Image(imgElement, {"
+        scriptSalesforce += "imgInstanceBack = new fabric.Image(imgElement, {"
         scriptSalesforce += "  left: 0,"
         scriptSalesforce += "  top: 0"
         scriptSalesforce += "});"
-        scriptSalesforce += "canvas.add(imgInstance);"
+        scriptSalesforce += "canvas.add(imgInstanceBack);"
+
+        'scriptSalesforce += "imgElement = document.getElementById(""imagenGrid"");"
+        'scriptSalesforce += "imgInstanceGrid = new fabric.Image(imgElement, {"
+        'scriptSalesforce += "  left: 0,"
+        'scriptSalesforce += "  top: 0"
+        'scriptSalesforce += "});"
+        'scriptSalesforce += "canvas.add(imgInstanceGrid);"
+
 
         scriptSalesforce += imagesCertifiedScript
 
@@ -111,7 +141,7 @@ Public Class Generador
         End If
 
         'scriptSalesforce += "var shadowText1 = new fabric.Text(""" + ContadorCertificates.ToString + "x Salesforce Certified"", {"
-        scriptSalesforce += "var shadowText1 = new fabric.Text(""" + textCertificates.ToString + "  " + textAccredited.ToString + """, {"
+        scriptSalesforce += " shadowText1 = new fabric.Text(""" + textCertificates.ToString + "  " + textAccredited.ToString + """, {"
 
         scriptSalesforce += "shadow:  'rgba(0,0,0,0.3) 15px 15px 15px',"
         scriptSalesforce += "fill:  color ,"
@@ -128,9 +158,21 @@ Public Class Generador
 
         scriptSalesforce += "top: 10"
         scriptSalesforce += "});"
-        scriptSalesforce += "canvas.add(shadowText1);"
-        scriptSalesforce += "canvas.renderAll();"
-        scriptSalesforce += "window.location.href=""#drawZone"";"
+        scriptSalesforce += " canvas.add(shadowText1);"
+
+        scriptSalesforce += " canvas.renderAll();"
+
+        scriptSalesforce += " window.location.href=""#drawZone"";"
+
+
+        scriptSalesforce += " var objectToSendBack;"
+        scriptSalesforce += " canvas.on('object:selected', function(event) {"
+        scriptSalesforce += "       objectToSendBack = event.target;"
+        scriptSalesforce += " });"
+
+        scriptSalesforce += " var sendSelectedObjectBack = function() {"
+        scriptSalesforce += "      canvas.sendToBack(objectToSendBack);"
+        scriptSalesforce += " }"
 
         'scriptSalesforce += "var qrcode = new QRCode(document.getElementById('qrcode'), {width : 100,height : 100});"
         'scriptSalesforce += "qrcode.makeCode('https://trailhead.salesforce.com/credentials/certification-detail-print?searchString='" + idSalesforceInput + ");"
@@ -138,7 +180,10 @@ Public Class Generador
 
         scriptSalesforce += " }"
         scriptSalesforce += " function saveImg(){  "
-        scriptSalesforce += "console.log('export image');"
+        scriptSalesforce += " console.log('export image');"
+
+        'scriptSalesforce += " canvas.remove(imgInstanceGrid);"
+
         scriptSalesforce += "if (!fabric.Canvas.supports('toDataURL')) {"
         scriptSalesforce += "       alert('This browser doesn\'t provide means to serialize canvas to an image');"
         scriptSalesforce += "} else {"

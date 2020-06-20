@@ -176,6 +176,15 @@ Partial Public Class _Default
     Protected WithEvents lblState As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''ButtonSaveImage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ButtonSaveImage As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''LiteralIframe control.
     '''</summary>
     '''<remarks>

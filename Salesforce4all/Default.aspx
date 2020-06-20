@@ -263,18 +263,70 @@
             </div>
             <!-- /.row -->
 
+                      
+            <div class="card my-4">
+                        <h5 class="card-header-salesforce">How it works </h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="list-unstyled mb-0">
+                                       <%-- <li>
+                                                <asp:Label ID="lblMessage1" runat="server"></asp:Label>
+                                        </li>--%>
+                                        <li>
+                                                  <b> Go ahead : </b>  This id is necesary to get the certificates . Follow this instructions:
+                                            <br>
+                                        </li>
+                                        <br>
+                                        <li>
+                                                <p class="card-text"><b>1.</b> Go to official web salesforce credential <a target="_blank" href="https://trailhead.salesforce.com/credentials/verification">Verification Site</a></p>
+                                        </li>
+                                        <li>
+                                                <p class="card-text"><b>2.</b> On <b>Verify a Salesforce Certified Professional</b> section. Then submit your <b>full name or email associated to webassesor</b> </p>
+                                        </li>
+                                        <li>
+                                                <p class="card-text"><b>3.</b> Click on <b>Search button</b>.</p>
+                                        </li>
+                                        <li>
+                                                <p class="card-text"><b>4.</b> Please complete the ReCaptcha. <b>I´m not a robot</b></p>
+                                        </li>
+                                          <li>
+                                                <p class="card-text"><b>5.</b> Click on  <b>Show credentials</b></p>
+                                        </li>
+                                          <li>
+                                                <p class="card-text"><b>6.</b> Click on  <b>Print Preview</b></p>
+                                        </li>
+                                          <li>
+                                                <p class="card-text"><b>7.</b> It will open a new window with a url like this  <b><a target="_blank" href="https://trailhead.salesforce.com/credentials/certification-detail-print?searchString=oHaLnS4kEkdN+9z71CDD52gFYUAPU0cxLOFBekYnCYZh4ZroYmyH5VcweWknOsBC">Verification Site</a></b></p>
+                                        </li>
+                                         <li>
+                                                <p class="card-text"><b>8.</b> Copy the searchString value at the end of url, it look like this:   <b>1RKVx8wH2FPaPqe6hKA6%2FL3UlBFlTXO6bNEIZLkpqvmycVnnROWZuzeOnIaTCl1M</b></p>
+                                        </li>
+                                         <li>
+                                                <p class="card-text"><b>9. </b> Use this salesforce id  on step number #3 to get your beatiful image.</p>
+                                        </li>
+                                         <br>
+                                        <li>
+                                            <!--<iframe width="420" height="315" src="https://www.youtube.com/embed/hIC8P_KZ8Js" frameborder="0" gesture="media" allowfullscreen></iframe>-->
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/iQV62TWIO9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
 
              <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 1 : Choose your favorite design !!! </h5>
+                        <h5 class="card-header-salesforce">Step 1 : Choose your favorite design !!! Pick on DropDown or Select an Image</h5>
              <hr />
                 <!--<asp:Image ID="Image1" runat="server" Height = "100" Width = "100" />-->
 
 
                         <div class="card-body">
-                            <div class="picker">
+                            <div class="picker" id="drawZoneUploadFile" >
                                 <select runat="server" title="Selecciona tu imagen preferida" class="image-picker show-labels show-html" id="imageSelected"  style="display: none">
-                                    <option data-img-src='Images/12/Custom.png' value='ImgCustom'>Custom</option>
-
+                                    
                                     <option data-img-src='Images/12/header-bg-1.png' value='header-bg-1'>Cabin</option>
                                     <option data-img-src='Images/12/header-bg-2.png' value='header-bg-2'>Morning</option>
                                     <option data-img-src='Images/12/header-bg-3.png' value='header-bg-3'>Sun</option>
@@ -301,7 +353,8 @@
                                     <option data-img-src='Images/12/header-bg-15.png' value='header-bg-15'>Red Carpet</option>
                                     <option data-img-src='Images/12/header-bg-16.png' value='header-bg-16'>Bridge</option>
                
-                                 
+                                    <option data-img-src='Images/12/Custom.png' value='ImgCustom' id="optionCustomImage" >Custom</option>
+                                  
                             
                                    </select>
                             </div>
@@ -372,75 +425,11 @@
                     </div>
                --%>
              
-                    <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 2 : Select your title text color </h5>
-                        <div class="card-body">
-                            <button data-jscolor="{valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
-		                        Pick text color
-	                        </button>
-	                        
-                            <!--HEX value: <input id="chosen-value" value="000000">
-                             HEX value: <input id="Text1c" value="000000">
-                               -->
-                        </div>
-                    </div>
+                  
 
-          
-                     <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 3: Search your salesforce account id</h5>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <ul class="list-unstyled mb-0">
-                                       <%-- <li>
-                                                <asp:Label ID="lblMessage1" runat="server"></asp:Label>
-                                        </li>--%>
-                                        <li>
-                                                  <b> Go ahead : </b>  This id is necesary to get the certificates . Follow this instructions:
-                                            <br>
-                                        </li>
-                                        <br>
-                                        <li>
-                                                <p class="card-text"><b>1.</b> Go to official web salesforce credential <a target="_blank" href="https://trailhead.salesforce.com/credentials/verification">Verification Site</a></p>
-                                        </li>
-                                        <li>
-                                                <p class="card-text"><b>2.</b> On <b>Verify a Salesforce Certified Professional</b> section. Then submit your <b>full name or email associated to webassesor</b> </p>
-                                        </li>
-                                        <li>
-                                                <p class="card-text"><b>3.</b> Click on <b>Search button</b>.</p>
-                                        </li>
-                                        <li>
-                                                <p class="card-text"><b>4.</b> Please complete the ReCaptcha. <b>I´m not a robot</b></p>
-                                        </li>
-                                          <li>
-                                                <p class="card-text"><b>5.</b> Click on  <b>Show credentials</b></p>
-                                        </li>
-                                          <li>
-                                                <p class="card-text"><b>6.</b> Click on  <b>Print Preview</b></p>
-                                        </li>
-                                          <li>
-                                                <p class="card-text"><b>7.</b> It will open a new window with a url like this  <b><a target="_blank" href="https://trailhead.salesforce.com/credentials/certification-detail-print?searchString=1RKVx8wH2FPaPqe6hKA6%2FL3UlBFlTXO6bNEIZLkpqvmycVnnROWZuzeOnIaTCl1M">Verification Site</a></b></p>
-                                        </li>
-                                         <li>
-                                                <p class="card-text"><b>8.</b> Copy the searchString value at the end of url, it look like this:   <b>1RKVx8wH2FPaPqe6hKA6%2FL3UlBFlTXO6bNEIZLkpqvmycVnnROWZuzeOnIaTCl1M</b></p>
-                                        </li>
-                                         <li>
-                                                <p class="card-text"><b>9. </b> Use this salesforce id  in next step to get your beatiful image.</p>
-                                        </li>
-                                         <br>
-                                        <li>
-                                            <!--<iframe width="420" height="315" src="https://www.youtube.com/embed/hIC8P_KZ8Js" frameborder="0" gesture="media" allowfullscreen></iframe>-->
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/iQV62TWIO9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </li>
-                                    </ul>
-                                </div>
-                              
-                            </div>
-                        </div>
-                    </div>
 
-             <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 4 : Search your salesforce certificates by your ID associated to your salesforce account on webassesor</h5>
+             <div id="drawGenerateButtonSection"  class="card my-4">
+                        <h5 class="card-header-salesforce">Step 2 : Select color title and Search your salesforce certificates by your ID associated to your salesforce account on webassesor</h5>
                         <div class="card-body">
                             <div class="row">
                                 
@@ -457,7 +446,7 @@
                                  <div class="col-lg-6">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <b>Id Salesforce: Follow instructions in Step 3 to get this value</b> 
+                                            <b>Id Salesforce: Follow instructions in Step 1 to get this value</b> 
                                         </li>
                                         <li>
                                            <asp:TextBox runat="server" ID="idSalesforce" class="form-control" placeholder="Example: 1RKVx8wH2FPaPqe6hKA6%2FL3UlBFlTXO6bNEIZLkpqvmycVnnROWZuzeOnIaTCl1M"></asp:TextBox>
@@ -467,14 +456,36 @@
                                 </div>
                                
                             </div>
-                            <br />
-                             <span class="input-group-btn">
-                                <asp:Button BackColor="Tomato" class="btn btn-primary" type="button" ID="Buscar" runat="server" Text="Generate Image" OnClientClick="ga('send', 'event', 'PDF Downloads', 'Click', 'SEO For Beginners');" />
-                                <label for="male" id="busqueda" style="display:none ">Buscando ...</label>
-                             </span>
                              <br />
-                             <asp:Label ID="LabelInputMessageValidation" runat="server" ForeColor ="Red" Font-Bold="true"  ></asp:Label>
-                            
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            <button class="form-control" style="border:2px solid gray"  data-jscolor="{valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+		                                        Pick title text color
+	                                         </button>
+                                        </li>
+                                    </ul>
+                                </div>
+               
+                            </div>
+                             <br />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            <span class="input-group-btn">
+                                                <asp:Button BackColor="Tomato" class="btn btn-primary" type="button" ID="Buscar" runat="server" Text="Generate your banner" OnClientClick="ga('send', 'event', 'PDF Downloads', 'Click', 'SEO For Beginners');" />
+                                                <label for="male" id="busqueda" style="display:none ">Buscando ...</label>
+                                             </span>
+                                             <br />
+                                             <asp:Label ID="LabelInputMessageValidation" runat="server" ForeColor ="Red" Font-Bold="true"  ></asp:Label>
+                           
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -483,7 +494,7 @@
              <div id="drawZoneNoResuts" style ="display:none" >
 
                     <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 4: Results</h5>
+                        <h5 class="card-header-salesforce">Results</h5>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -536,7 +547,7 @@
             <div id="drawZone" style ="display:none" >
 
                   <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 5: Results</h5>
+                        <h5 class="card-header-salesforce">Results</h5>
                         <div class="card-body">
                             <div class="row">
                                  <div class="col-lg-6">
@@ -574,9 +585,42 @@
                         </div>
                     </div>
 
+                
+
+                    <div class="row">
+                        <div id="container">
+                            <canvas id="c" width="1200" height="320" style="border:2px solid gray"></canvas>
+                        </div>
+                    </div>
+
+                 <!-- Call to Action Section -->
+                    <div class="row mb-4" style="margin-top: 20px">
+                          <div class="col-md-8">
+                            <div class="row">
+                            <div class="col-lg-2 col-sm-4 mb-4">
+                              <img class="img-fluid" src="Images/browsers/logo-firefox.png" alt="">
+                            </div>
+                            <div class="col-lg-2 col-sm-4 mb-4">
+                              <img class="img-fluid" src="Images/browsers/logo-opera.png" alt="">
+                            </div>
+                            <div class="col-lg-2 col-sm-4 mb-4">
+                              <img class="img-fluid" src="Images/browsers/logo-safari.png" alt="">
+                            </div>
+                            <div class="col-lg-2 col-sm-4 mb-4">
+                              <img class="img-fluid" src="Images/browsers/logo-chrome.png" alt="">
+                            </div>
+                          </div>
+                          </div>
+                        <div class="col-md-4">
+                              <p>Feel Free to customize image, resize,reorient or move certificates. Choose Chrome,Firefox ,Opera or Safari Browser to save your logo  certificate.</p>
+                            <a id="saveDownload" class="btn btn-primary" href="#" onclick="saveImg();" style="width:350px;background-color:tomato" >Save and Download your banner</a>
+                            <!--<asp:Button BackColor="Tomato" class="btn btn-primary" type="button" ID="ButtonSaveImage" runat="server" Text="Save Image" />-->
+                              
+                        </div>
+                    </div>
 
                    <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 6: Iframe</h5>
+                        <h5 class="card-header-salesforce">Iframe</h5>
                         <div class="card-body">
                             <div class="row">
                                  <div class="col-lg-12">
@@ -599,7 +643,7 @@
 
 
                  <div class="card my-4">
-                        <h5 class="card-header-salesforce">Step 7: You can download your QR code for your certificates</h5>
+                        <h5 class="card-header-salesforce">You can download your QR code for your certificates</h5>
                         <div class="card-body">
                             <div class="row">
                                 
@@ -630,37 +674,7 @@
 
 
 
-                    <div class="row">
-                        <div id="container">
-                            <canvas id="c" width="1200" height="320"></canvas>
-                        </div>
-                    </div>
-
-
-
-                    <!-- Call to Action Section -->
-                    <div class="row mb-4" style="margin-top: 20px">
-                          <div class="col-md-8">
-                            <div class="row">
-                            <div class="col-lg-2 col-sm-4 mb-4">
-                              <img class="img-fluid" src="Images/browsers/logo-firefox.png" alt="">
-                            </div>
-                            <div class="col-lg-2 col-sm-4 mb-4">
-                              <img class="img-fluid" src="Images/browsers/logo-opera.png" alt="">
-                            </div>
-                            <div class="col-lg-2 col-sm-4 mb-4">
-                              <img class="img-fluid" src="Images/browsers/logo-safari.png" alt="">
-                            </div>
-                            <div class="col-lg-2 col-sm-4 mb-4">
-                              <img class="img-fluid" src="Images/browsers/logo-chrome.png" alt="">
-                            </div>
-                          </div>
-                          </div>
-                        <div class="col-md-4">
-                              <p>Feel Free to customize image, resize,reorient or move certificates. Choose Chrome,Firefox ,Opera or Safari Browser to save your logo  certificate.</p>
-                            <a class="btn btn-primary" href="#" onclick="saveImg();" style="width:350px " >Save Image</a>
-                        </div>
-                    </div>
+                   
 
             </div>
           
@@ -799,7 +813,11 @@
       
       
         <img src="Images/12/Custom.png" id="ImgCustom" style="display: none;">
+       
         
+         <!--<img src="Images/Original/header-bg-grid.png" id="imagenGrid" style="display: none;">-->
+       
+         
         <img src="Images/Original/header-bg-1.png" id="header-bg-1" style="display: none;">
         <img src="Images/Original/header-bg-2.png" id="header-bg-2" style="display: none;">
         <img src="Images/Original/header-bg-3.png" id="header-bg-3" style="display: none;">
@@ -968,8 +986,10 @@
         <div class="cert-badge-certified-technical-architect" id=".cert.badge.certified.technical.architect" style="display: none;"></div>--%>
 
 
-
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"></script>-->
+        <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min.js"></script>  -->               
         <script src="Scripts/fabric.min.js" type="text/javascript"></script>
+
         <script type="text/javascript">
 
             function redirect() {
@@ -1021,7 +1041,7 @@
        makeCode();
     </script>
 
-    <script>
+    <script type="text/javascript">
     	    function setTextColor(picker) {
     	        //document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
     	        //document.getElementById("Text1c").value = '#' + picker.toString();
@@ -1029,6 +1049,8 @@
     	        
     	    }
 	</script>
+
+ 
 
 
 </body>

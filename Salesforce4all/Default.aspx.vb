@@ -12,10 +12,17 @@ Imports System
 Public Class _Default
     Inherits System.Web.UI.Page
 
-    Dim src As String
+    'Public Activar As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'Dim generatorService As New Generador
+
+        'Activar = "Images/12/header-bg-1.png"
+        'ltUserName.Text = " <option data-img-src='Images/12/header-bg-1.png' value='ImgCustom' >Custom</option>"
+        'optionCustomImage.dataimgsrc = "Images/12/header-bg-1.png"
+
+
+
 
         Dim email As String = Request.QueryString("email")
         Dim indexBackground As String = Request.QueryString("indexBackground")
@@ -39,9 +46,9 @@ Public Class _Default
 
         End Try
 
-        If Not Page.IsPostBack Then
-       
 
+        If Not Page.IsPostBack Then
+          
         End If
 
         'If Not email Is Nothing And Not indexBackground Is Nothing Then
@@ -82,13 +89,18 @@ Public Class _Default
         End If
 
         LabelInputMessageValidation.Text = ""
+        LabelUpload.Text = ""
 
         If email.Text = "" Then
             LabelInputMessageValidation.Text = "Email is requiered"
+            Dim profileResponse As Profile = generatorService.goToDrawZone()
+            ScriptManager.RegisterStartupScript(Page, Me.GetType(), "autocomplete", profileResponse.cScript, True)
         End If
 
         If idSalesforce.Text = "" Then
             LabelInputMessageValidation.Text = "id Salesforce is requiered"
+            Dim profileResponse As Profile = generatorService.goToDrawZone()
+            ScriptManager.RegisterStartupScript(Page, Me.GetType(), "autocomplete", profileResponse.cScript, True)
         End If
 
         If LabelInputMessageValidation.Text = "" Then
@@ -119,7 +131,7 @@ Public Class _Default
 
    
     Protected Sub UploadFile(sender As Object, e As EventArgs) Handles btnUpload.Click
-
+        LabelInputMessageValidation.Text = ""
         LabelUpload.Text = ""
 
         If FileUpload1.FileName <> "" Then
@@ -162,6 +174,12 @@ Public Class _Default
             LabelUpload.Text = "You must select a file first."
 
         End If
+
+        imageSelected.SelectedIndex = 20
+
+        Dim generatorService As New Generador()
+        Dim profileResponse As Profile = generatorService.goToDrawZoneUpload()
+        ScriptManager.RegisterStartupScript(Page, Me.GetType(), "autocomplete", profileResponse.cScript, True)
 
     End Sub
 End Class
