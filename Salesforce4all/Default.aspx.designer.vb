@@ -176,13 +176,13 @@ Partial Public Class _Default
     Protected WithEvents lblState As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ButtonSaveImage control.
+    '''textQr control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ButtonSaveImage As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents textQr As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''LiteralIframe control.
@@ -192,15 +192,6 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LiteralIframe As Global.System.Web.UI.WebControls.Literal
-
-    '''<summary>
-    '''textQr control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents textQr As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''TextBoxColor control.

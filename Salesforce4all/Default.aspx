@@ -6,6 +6,8 @@
 <head id="Head1" runat="server">
     <title>Salesforce4All</title>
 
+
+    
     <link rel="icon" href="Images/index2.png">
 
      <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -308,7 +310,9 @@
                                          <br>
                                         <li>
                                             <!--<iframe width="420" height="315" src="https://www.youtube.com/embed/hIC8P_KZ8Js" frameborder="0" gesture="media" allowfullscreen></iframe>-->
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/iQV62TWIO9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/iQV62TWIO9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+                                            <iframe width="560" height="315" src="https://www.youtube.com/watch?v=V2xcoVCfd0M&t=113s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            
                                         </li>
                                     </ul>
                                 </div>
@@ -490,6 +494,81 @@
                     </div>
 
 
+              <!--<h2>Share on ... !!! </h2>-->
+                    <p></p>
+
+            <!-- AddToAny BEGIN -->
+                <!--<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_twitter"></a>
+                <a class="a2a_button_email"></a>
+                <a class="a2a_button_linkedin"></a>
+                </div>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>-->
+            <!-- AddToAny END -->
+
+
+             <!-- Content Row -->
+              <div class="row" style="margin-top:50px">
+                   <div class="col-lg-4 mb-4">
+                    <h2>Share tool on different accounts</h2>
+                    <p>More than 7000 people have used the tool. Share it so that the community can continue to grow</p>
+                </div>
+
+                <a href="https://twitter.com/intent/tweet?text=Generate your salesforce certificate banner at Salesforce4all. Site: http://salesforce4all.com/" data-size="small"  hashtags="Salesforce" >
+                    <div class="col-lg-4 mb-4">
+                      <div class="card h-50">
+                        <h3 class="card-header" style="text-align:center">Twitter</h3>
+                        <div class="card-body" style="width:150px;height:150px;text-align:center;margin-left:100px">
+                           <img class="card-img-top" src="Images/Social/12/twitter.png" alt="" >
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item"> 
+                              <a href="https://twitter.com/intent/tweet?text=Generate your salesforce certificate banner at Salesforce4all. Site:" data-size="small"class="twitter-share-button" hashtags="Salesforce" >Tweet Salesforce4All</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </a>
+
+
+                <!--<a href="https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Fsalesforce4all.com" target="popup" data-size="small"  hashtags="Salesforce" >
+                    <div class="col-lg-4 mb-4">
+                      <div class="card h-50">
+                        <h3 class="card-header" style="text-align:center">LinkedIn</h3>
+                        <div class="card-body" style="width:150px;height:150px;text-align:center;margin-left:100px">
+                          <img class="card-img-top" src="Images/Social/12/linkedin.png" alt="">
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item"> 
+                              <a href="https://twitter.com/intent/tweet?text=Generate your salesforce certificate banner at Salesforce4all. Site:" data-size="small"class="twitter-share-button" hashtags="Salesforce" >Tweet Salesforce4All</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </a>-->
+
+                <div class="col-lg-4 mb-4">
+                  <div class="card h-50">
+                    <h3 class="card-header" style="text-align:center">LinkedIn</h3>
+                    <div class="card-body" style="width:150px;height:150px;text-align:center;margin-left:100px">
+                      <img class="card-img-top" src="Images/Social/12/linkedin.png" alt="">
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">  
+                         <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+                         <script type="IN/Share" data-url="http://salesforce4all.com/"></script>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+              </div>
+
+
+
 
              <div id="drawZoneNoResuts" style ="display:none" >
 
@@ -614,34 +693,47 @@
                         <div class="col-md-4">
                               <p>Feel Free to customize image, resize,reorient or move certificates. Choose Chrome,Firefox ,Opera or Safari Browser to save your logo  certificate.</p>
                             <a id="saveDownload" class="btn btn-primary" href="#" onclick="saveImg();" style="width:350px;background-color:tomato" >Save and Download your banner</a>
-                            <!--<asp:Button BackColor="Tomato" class="btn btn-primary" type="button" ID="ButtonSaveImage" runat="server" Text="Save Image" />-->
-                              
                         </div>
+
+                   
                     </div>
 
-                   <div class="card my-4">
-                        <h5 class="card-header-salesforce">Iframe</h5>
+
+
+                      <div class="card my-4">
+                        <h5 class="card-header-salesforce">Share the tool with others</h5>
                         <div class="card-body">
                             <div class="row">
                                  <div class="col-lg-12">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <p>Now you can use an iframe on your website, now you can always keep up to date your cert logo!. Background parameter is a value from 0 to 14 </p>
+                                            <b></b> 
                                         </li>
+                                       
+                                         <div class="card h-50">
+                                                <!--<h3 class="card-header" style="text-align:center">LinkedIn</h3>
+                                                <div class="card-body" style="width:150px;height:150px;text-align:center;margin-left:100px">
+                                                  <img class="card-img-top" src="Images/Social/12/linkedin.png" alt="">
+                                                </div>-->
+                                                <ul class="list-group list-group-flush">
+                                                  <li class="list-group-item">  
+                                                     <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+                                                     <script type="IN/Share" data-url="http://salesforce4all.com/"></script>
+                                                  </li>
+                                                </ul>
+                                              </div>
                                     </ul>
                                 </div>
-                                <div class="col-lg-12">
-                                    <ul class="list-unstyled mb-0">
-                                        <li>
-                                            <p><b><asp:Literal ID="LiteralIframe" runat="server" ></asp:Literal></b></p>
-                                        </li>
-                                    </ul>
-                                </div>
+                               
                             </div>
+                                  
                         </div>
                     </div>
 
 
+
+
+             
                  <div class="card my-4">
                         <h5 class="card-header-salesforce">You can download your QR code for your certificates</h5>
                         <div class="card-body">
@@ -663,7 +755,6 @@
                                         <li>
                                             <b>You can download a Qr code with link to Salesforce official site with your certificates. Make righ click over qr image and press Save image as option. Now you can share your QR code image at any location</b> 
                                         </li>
-                                       
                                     </ul>
                                 </div>
                                
@@ -672,7 +763,27 @@
                         </div>
                     </div>
 
-
+                <div class="card my-4">
+                        <h5 class="card-header-salesforce">Iframe</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                 <div class="col-lg-12">
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            <p>Now you can use an iframe on your website, now you can always keep up to date your cert logo!. Background parameter is a value from 0 to 14 </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-12">
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            <p><b><asp:Literal ID="LiteralIframe" runat="server" ></asp:Literal></b></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                    
 
@@ -789,8 +900,8 @@
                 </div>
               </div>
 
-                <asp:TextBox runat="server" ID="TextBoxColor" Width="1"></asp:TextBox>
-               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <asp:TextBox runat="server" ID="TextBoxColor" Width="0"></asp:TextBox>
+               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-size="large" class="twitter-share-button" data-show-count="true">Tweet</a>
 
             <hr>
         </div>
@@ -1050,8 +1161,9 @@
     	    }
 	</script>
 
- 
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+    <!--<script async src="https://static.addtoany.com/menu/page.js"></script>-->
 
 </body>
 </html>

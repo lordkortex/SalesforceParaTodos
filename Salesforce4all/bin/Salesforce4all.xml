@@ -431,9 +431,9 @@ lblState control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Salesforce4all._Default.ButtonSaveImage">
+</member><member name="F:Salesforce4all._Default.textQr">
 	<summary>
-ButtonSaveImage control.
+textQr control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -442,14 +442,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Salesforce4all._Default.LiteralIframe">
 	<summary>
 LiteralIframe control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Salesforce4all._Default.textQr">
-	<summary>
-textQr control.
 </summary>
 	<remarks>
 Auto-generated field.
