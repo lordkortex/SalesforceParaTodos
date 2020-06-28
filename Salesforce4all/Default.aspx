@@ -7,6 +7,9 @@
     <title>Salesforce4All</title>
 
 
+    <script data-ad-client="ca-pub-3393214826681796" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
     
     <link rel="icon" href="Images/index2.png">
 
@@ -311,7 +314,7 @@
                                         <li>
                                             <!--<iframe width="420" height="315" src="https://www.youtube.com/embed/hIC8P_KZ8Js" frameborder="0" gesture="media" allowfullscreen></iframe>-->
                                             <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/iQV62TWIO9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-                                            <iframe width="560" height="315" src="https://www.youtube.com/watch?v=V2xcoVCfd0M&t=113s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/V2xcoVCfd0M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                             
                                         </li>
                                     </ul>

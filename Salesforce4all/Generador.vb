@@ -69,6 +69,9 @@ Public Class Generador
             '       Dio de baja http://certification.salesforce.com/verification-email?email=gpattersonm@gmail.com
             'getDataHeaderJsonV3(profileResponse)
 
+            'System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+            'getDataHeaderNamesHtmlV5(profileResponse)
+
             getDataHeaderJsonV4(profileResponse)
         Catch ex As Exception
             db.insertHistorico(ex.Message, "", "", "", "", email, idSalesforce, source)
@@ -514,6 +517,78 @@ Public Class Generador
         Dim request As HttpWebRequest = HttpWebRequest.Create("http://certification.salesforce.com/verification-email?init=1&email=" + email)
 
         request.Method = WebRequestMethods.Http.Get
+
+        Dim response As Net.HttpWebResponse = request.GetResponse()
+        Dim reader As New StreamReader(response.GetResponseStream())
+        tmp = reader.ReadToEnd()
+        response.Close()
+
+        Dim MyExpression1 As String = ""
+
+
+        tmp = tmp.Replace("<span class=""name"">Name</span>", "")
+        tmp = tmp.Replace("<span class=""city"">City</span>", "")
+        tmp = tmp.Replace("<span class=""state"">State</span>", "")
+        tmp = tmp.Replace("<span class=""country"">Country</span>", "")
+
+
+        MyExpression1 = "<span class=""name"">(.*?)</span>"
+        Dim Tables1 As MatchCollection = Regex.Matches(tmp, MyExpression1, RegexOptions.Multiline Or RegexOptions.Singleline Or RegexOptions.IgnoreCase)
+
+        For Each matchTable In Tables1
+            certificadoEncabezado.Name = matchTable.value()
+            certificadoEncabezado.Name = getInnerText(certificadoEncabezado.Name)
+        Next
+
+        MyExpression1 = "<span class=""city"">(.*?)</span>"
+        Dim Tables2 As MatchCollection = Regex.Matches(tmp, MyExpression1, RegexOptions.Multiline Or RegexOptions.Singleline Or RegexOptions.IgnoreCase)
+
+        For Each matchTable In Tables2
+            certificadoEncabezado.City = matchTable.value()
+            certificadoEncabezado.City = getInnerText(certificadoEncabezado.City)
+        Next
+
+        MyExpression1 = "<span class=""state"">(.*?)</span>"
+        Dim Tables3 As MatchCollection = Regex.Matches(tmp, MyExpression1, RegexOptions.Multiline Or RegexOptions.Singleline Or RegexOptions.IgnoreCase)
+
+        For Each matchTable In Tables3
+            certificadoEncabezado.State = matchTable.value()
+            certificadoEncabezado.State = getInnerText(certificadoEncabezado.State)
+        Next
+
+        MyExpression1 = "<span class=""country"">(.*?)</span>"
+        Dim Tables4 As MatchCollection = Regex.Matches(tmp, MyExpression1, RegexOptions.Multiline Or RegexOptions.Singleline Or RegexOptions.IgnoreCase)
+
+        For Each matchTable In Tables4
+            certificadoEncabezado.Country = matchTable.value()
+            certificadoEncabezado.Country = getInnerText(certificadoEncabezado.Country)
+        Next
+
+
+        Return certificadoEncabezado
+    End Function
+
+    Public Function getDataHeaderNamesHtmlV5(ByRef profileResponse As Profile) As DatumJson
+
+        Dim certificadoEncabezado As New DatumJson
+
+        Dim tmp As String = ""
+
+        Dim postData As String = String.Format("x={0}&P={1}", "usernamevalue", "passwordvalue")
+        Dim request As HttpWebRequest = HttpWebRequest.Create("https://trailhead.salesforce.com/credentials/verification")
+        request.Method = WebRequestMethods.Http.Post
+        request.UserAgent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2"
+        request.AllowWriteStreamBuffering = True
+        request.ProtocolVersion = HttpVersion.Version11
+        request.AllowAutoRedirect = True
+        request.ContentType = "application/x-www-form-urlencoded"
+
+        Dim byteArray As Byte() = Encoding.ASCII.GetBytes(postData)
+        request.ContentLength = byteArray.Length
+        Dim newStream As Stream = request.GetRequestStream()
+        newStream.Write(byteArray, 0, byteArray.Length)
+        newStream.Close()
+        
 
         Dim response As Net.HttpWebResponse = request.GetResponse()
         Dim reader As New StreamReader(response.GetResponseStream())
