@@ -226,6 +226,9 @@ Public Class Generador
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
         Dim request As HttpWebRequest = HttpWebRequest.Create("https://drm.secure.force.com/services/apexrest/credential?searchString=" + idSalesforce)
+        'Dim request As HttpWebRequest = HttpWebRequest.Create("https://www.idealista.com/inmueble/90408934/")
+        'request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)"
+        'request.KeepAlive = False
         request.Method = WebRequestMethods.Http.Get
 
         Dim response As Net.HttpWebResponse = request.GetResponse()

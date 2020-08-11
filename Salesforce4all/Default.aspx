@@ -6,6 +6,8 @@
 <head id="Head1" runat="server">
     <title>Salesforce4All</title>
 
+    <script data-ad-client="ca-pub-3393214826681796" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
      <!-- Global site tag (gtag.js) - Google Adesense -->
     <script data-ad-client="ca-pub-3393214826681796" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,6 +94,20 @@
 
         <!-- Page Content -->
         <div class="container">
+
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Salesforce Basic Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-3393214826681796"
+                     data-ad-slot="4610429391"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
+
 
            <%-- <h1 class="my-4">Welcome to the new way to generate your certificate logo</h1>--%>
             <h1 class="my-4">Generate your certificate logo for your LinkedIn profile or general purpose.</h1>
