@@ -95,8 +95,8 @@
         <!-- Page Content -->
         <div class="container">
 
+            <!--
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Salesforce Basic Unit -->
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-3393214826681796"
@@ -106,7 +106,7 @@
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
-
+            -->
 
 
            <%-- <h1 class="my-4">Welcome to the new way to generate your certificate logo</h1>--%>
@@ -260,8 +260,9 @@
                             </div>
 
                                 <h5 class="card-header-salesforce"> ... if you don't like any ... upload your own. If you choose a Custom design we recomend this size : 1500 x 320 pixeles with .png extension </h5>
-                                <br />
+                                <br /><br />
                                 <asp:FileUpload ID="FileUpload1" runat="server"  />
+                                <br />  <br />
                                 <asp:Button BackColor="Tomato" class="btn btn-primary" type="button" ID="btnUpload" runat="server" Text="Upload Image" OnClick="UploadFile" />
                               
                                 <br />
@@ -773,10 +774,11 @@
         <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator-min.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Developer-min.jpg" id="Salesforce Certified B2C Commerce Developer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Technical.Solution.Designer-min.jpg" id="Salesforce Certified B2C Technical Solution Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Salesforce Certified JavaScript Developer I-min.png" id="Salesforce Certified JavaScript Developer I" style="display: none;">
         <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer-min.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
         <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator-min.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
         <img src="Images/Certificates/Salesforce Certified B2C Commerce Architect-min.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator-min.jpg" id="Img2" style="display: none;">
+        
         
 
         <script src="Scripts/fabric.min.js" type="text/javascript"></script>
