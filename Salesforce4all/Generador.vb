@@ -78,6 +78,22 @@ Public Class Generador
         End Try
 
         Dim scriptSalesforce As String = ""
+      
+        scriptSalesforce += "  $(function () {"
+        scriptSalesforce += "      $('#myWhatsAppButton').floatingWhatsApp({"
+        scriptSalesforce += "                    phone:  '34662214870',"
+        scriptSalesforce += "                    popupMessage:  'Hello ' + document.getElementById(""lblName"").innerHTML + ' , how can we help you?',"
+        scriptSalesforce += "                    message: 'Hello Jhon, my email  is ' + document.getElementById(""email"").value   + '. I would like to comment about your site ...',"
+        'scriptSalesforce += "                    message: 'Hello John, my email name is ' + document.getElementById(""lblName"").innerHTML   + ' . I'd like to comment about your site ...',"
+        scriptSalesforce += "                    showPopup: true,"
+        scriptSalesforce += "                    showOnIE: false,"
+        scriptSalesforce += "                    headerTitle:  'Welcome!'"
+        scriptSalesforce += "   });"
+        scriptSalesforce += "  });"
+
+
+
+
         scriptSalesforce += " var canvas;"
         scriptSalesforce += " var imgInstanceBack;"
         scriptSalesforce += " var shadowText1;"

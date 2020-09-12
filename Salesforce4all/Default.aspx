@@ -6,6 +6,12 @@
 <head id="Head1" runat="server">
     <title>Salesforce4All</title>
 
+    <!--  https://github.com/rafaelbotazini/floating-whatsapp -->
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <link  rel ="stylesheet" href="css/floating-wpp.min.css">
+    <script type="text/javascript" src="scripts/floating-wpp.min.js"></script>
+
+
     <script data-ad-client="ca-pub-3393214826681796" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
      <!-- Global site tag (gtag.js) - Google Adesense -->
@@ -30,13 +36,13 @@
     <link href="css/modern-business.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/image-picker.css">
 
+    
+    <!--<script src="scripts/jquery.min.js" type="text/javascript"></script>-->
+    <!--<script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>-->
     <script src="scripts/jscolor.js"></script>
-
-    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
     <script src="scripts/image-picker.min.js" type="text/javascript"></script>
     <script src="scripts/qrcode.min.js" type="text/javascript" ></script>
-    <!--<script src="scripts/jquery.min.js" type="text/javascript"></script>-->
-
+    
 
 
     <style>
@@ -93,6 +99,9 @@
             </div>
           </div>
         </nav>
+
+    
+
 
 
         <!-- Page Content -->
@@ -208,9 +217,9 @@
                                         </li>
                                          <br>
                                         <li>
-                                            <!--<iframe width="420" height="315" src="https://www.youtube.com/embed/hIC8P_KZ8Js" frameborder="0" gesture="media" allowfullscreen></iframe>-->
-                                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/iQV62TWIO9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/V2xcoVCfd0M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <!--<iframe width="400" height="315" src="https://www.youtube.com/embed/hIC8P_KZ8Js" frameborder="0" gesture="media" allowfullscreen></iframe>-->
+                                            <!--<iframe width="400" height="315" src="https://www.youtube.com/embed/iQV62TWIO9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+                                            <iframe width="400" height="315" src="https://www.youtube.com/embed/V2xcoVCfd0M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                             
                                         </li>
                                     </ul>
@@ -219,6 +228,7 @@
                             </div>
                         </div>
                     </div>
+
 
              <div class="card my-4">
                         <h5 class="card-header-salesforce">Step 1 : Choose your favorite design !!! Pick on DropDown or Select an Image</h5>
@@ -729,6 +739,8 @@
                 </div>
               </div>
 
+                <div id="myWhatsAppButton"></div>
+
                 <asp:TextBox runat="server" ID="TextBoxColor" Width="0"></asp:TextBox>
                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-size="large" class="twitter-share-button" data-show-count="true">Tweet</a>
 
@@ -847,7 +859,7 @@
     </form>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <!--<script src="vendor/jquery/jquery.min.js"></script>-->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
@@ -874,5 +886,42 @@
 
     <script type="text/javascript" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+
+   
+
 </body>
+   
+
+   <!-- <script type="text/javascript">
+        $(function () {
+            $('#myWhatsAppButton').floatingWhatsApp({
+                phone: '34688283753',
+                popupMessage: 'Hello, how can we help you?',
+                message: "I'd like to order a pizza",
+                showPopup: true,
+                showOnIE: false,
+                headerTitle: 'Welcome!',
+                headerColor: 'crimson',
+                backgroundColor: 'crimson',
+                buttonImage: '<img src="burger.svg" />'
+            });
+        });
+    </script>-->
+
+
+   <script type="text/javascript">
+       $(function () {
+           if (document.getElementById("lblName").innerHTML === "") {
+                    $('#myWhatsAppButton').floatingWhatsApp({
+                        phone: '34662214870',
+                       popupMessage: 'Hello, how can we help you?',
+                       message: "I'd like to comment about your site",
+                       showPopup: true,
+                       showOnIE: false,
+                       headerTitle: 'Welcome!'
+                    });
+                }
+            });
+    </script>
+
 </html>
