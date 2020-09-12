@@ -1257,6 +1257,16 @@ Public Class Generador
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
 
+            Case 31 To 35
+                scriptSalesforce += "  var separation = 115;"
+                scriptSalesforce += "  var initialPositionXOriginal = 27;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 55;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.30;"
+                scriptSalesforce += "  var scaleY = 0.30;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
 
         End Select
 
@@ -1357,6 +1367,11 @@ Public Class Generador
             Case 25 To 30
                 If contador Mod 9 = 0 Then
                     scriptSalesforce += "       initialPositionY  = initialPositionY + 80;"
+                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+                End If
+            Case 31 To 35
+                If contador Mod 10 = 0 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 65;"
                     scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
                 End If
 

@@ -83,9 +83,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                  <li class="nav-item active">
+                    <a id="A3" target="_blank" rel="noopener noreferrer" class="btn btn-primary" href="https://igg.me/at/Salesforce4all"  style="width:350px;background-color:tomato" >Donate and Support</a>
+                   </li> 
+                <!--<li class="nav-item active">
                   <a class="nav-link" href="about.html">About</a>
-                </li>
+                </li>-->
               </ul>
             </div>
           </div>
@@ -493,7 +496,37 @@
                           </div>
                         <div class="col-md-4">
                               <p>Feel Free to customize image, resize,reorient or move certificates. Choose Chrome,Firefox ,Opera or Safari Browser to save your logo  certificate.</p>
-                            <a id="saveDownload" class="btn btn-primary" href="#" onclick="saveImg();" style="width:350px;background-color:tomato" >Save and Download your banner</a>
+                           <!-- <a id="A2" class="btn btn-primary" href="https://igg.me/at/Salesforce4all"  style="width:350px;background-color:tomato" >Donate and Support</a>-->
+                             
+                             <a id="saveDownload" class="btn btn-primary" href="default.aspx#drawZone" onclick="saveImg();" style="width:350px;background-color:tomato" >Save and Download your banner</a>
+                          
+                        </div>
+                    </div>
+
+
+                 <div class="card my-4">
+                        <h5 class="card-header-salesforce">Donate</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                 <div class="col-lg-12">
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            More than 7000 people have used and enjoyed the tool.<br /><br />
+                                            Salesforce4All is something special. When I founded Salesforce4All, we established it with no profit penalties with no ads.<br /><br />
+                                            However the site requires maintenance and adding new features to make it more attractive and reach more people. If you want to donate a little, we would appreciate it.<br /><br />
+                                            if you can't, nothing happens, we always hope you come back and generate your banner with the style you prefer.<br /><br />
+                                            Thank you
+                                        </li>
+                                        <li>
+                                            <br /><br />
+                                              <a id="A1" target="_blank" rel="noopener noreferrer" class="btn btn-primary" href="https://igg.me/at/Salesforce4all"  style="width:350px;background-color:tomato" >Donate and Support</a>
+                                           </li>
+
+                                    </ul>
+                                </div>
+                               
+                            </div>
+                                  
                         </div>
                     </div>
 
@@ -738,7 +771,7 @@
         <img src="Images/OriginalTrailhead/header-bg-4.png" id="header-bg-t4" style="display: none;">
 
 
-         <img src="Images/Certificates/.cert-badge.Certified.Administrator-min.jpg" id="Salesforce Certified Administrator" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Administrator-min.jpg" id="Salesforce Certified Administrator" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator-min.jpg" id="Salesforce Certified Advanced Administrator" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Sales.Consultant-min.jpg" id="Salesforce Certified Sales Cloud Consultant" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Service.Consultant-min.jpg" id="Salesforce Certified Service Cloud Consultant" style="display: none;">
@@ -775,9 +808,9 @@
         <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Developer-min.jpg" id="Salesforce Certified B2C Commerce Developer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Technical.Solution.Designer-min.jpg" id="Salesforce Certified B2C Technical Solution Designer" style="display: none;">
         <img src="Images/Certificates/.cert-badge.Certified.Salesforce Certified JavaScript Developer I-min.png" id="Salesforce Certified JavaScript Developer I" style="display: none;">
+        <img src="Images/Certificates/.cert.badge.Salesforce.Certified B2C.Commerce Architect-min.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
         <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer-min.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
         <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator-min.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
-        <img src="Images/Certificates/Salesforce Certified B2C Commerce Architect-min.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
         
         
 

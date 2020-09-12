@@ -111,155 +111,53 @@
         <img src="Images/Original/header-bg-14.png" id="header-bg-14" style="display: none;">
         <img src="Images/Original/header-bg-15.png" id="header-bg-15" style="display: none;">
 
-          <img src="Images/OriginalTrailhead/header-bg-1.png" id="header-bg-t1" style="display: none;">
+        <img src="Images/OriginalTrailhead/header-bg-1.png" id="header-bg-t1" style="display: none;">
         <img src="Images/OriginalTrailhead/header-bg-2.png" id="header-bg-t2" style="display: none;">
         <img src="Images/OriginalTrailhead/header-bg-3.png" id="header-bg-t3" style="display: none;">
         <img src="Images/OriginalTrailhead/header-bg-4.png" id="header-bg-t4" style="display: none;">
 
 
 
-         <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id="Salesforce Certified Administrator" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator.jpg" id="Salesforce Certified Advanced Administrator" style="display: none;">
-        <%--<img src="Images/Certificates/.cert-badge.Certified.Advanced.Developer.jpg" id="Salesforce Certified Platform Developer II" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Developer.jpg" id="Salesforce Certified Platform Developer I" style="display: none;">
-        --%><img src="Images/Certificates/.cert-badge.Certified.Sales.Consultant.jpg" id="Salesforce Certified Sales Cloud Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Service.Consultant.jpg" id="Salesforce Certified Service Cloud Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Technical.Architect.jpg" id="Salesforce Certified Technical Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.System.Architect.jpg" id="Salesforce Certified System Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Application.Architect.jpg" id="Salesforce Certified Application Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Pardot.Consultant.jpg" id="Salesforce Certified Pardot Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Pardot.User.jpg" id="Salesforce Certified Pardot Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.App.Builder.jpg" id="Salesforce Certified Platform App Builder" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Email.Specialist.jpg" id="Salesforce Certified Marketing Cloud Email Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Social.Specialist.jpg" id="Certified Marketing Cloud Social Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Programmer.I.jpg" id="Salesforce Certified Platform Developer I" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Programmer.II.jpg" id="Salesforce Certified Platform Developer II" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Salesforce Certified Data Architecture & Management Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Salesforce Certified Data Architecture and Management Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist.jpg" id="Salesforce Certified Development Lifecycle and Deployment Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Integration.Architecture.Specialist.jpg" id="Salesforce Certified Integration Architecture Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Consultant.jpg" id="Salesforce Certified Marketing Cloud Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Developer.jpg" id="Salesforce Certified Marketing Cloud Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Sharing.and.Visibility.Designer.jpg" id="Salesforce Certified Sharing and Visibility Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Identity.and.Access.Management.Designer.jpg" id="Salesforce Certified Identity and Access Management Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Mobile.Solutions.Architecture.Designer.jpg" id="Salesforce Certified Mobile Solutions Architecture Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Community.Cloud.Consultant.jpg" id="Salesforce Certified Community Cloud Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.CPQ.Specialist.jpg" id="Salesforce Certified CPQ Specialist" style="display: none;">
-      <%--  <img src="Images/Certificates/.cert-badge.Certified.Commerce.Cloud.Digital.Developer.jpg" id="YaNoExiste1" style="display: none;">
-      --%>  
-        <img src="Images/Certificates/.cert-badge.Accredited.Sales.Professional.jpg" id="Accredited Sales Professional" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Accredited.Presales.Professional.jpg" id="Accredited Presales Professional" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Nonprofit.Cloud.Consultant.jpg" id="Salesforce Certified Nonprofit Cloud Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Einstein.Analytics.Discovery.Consultant.png" id="Salesforce Certified Einstein Analytics and Discovery Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
-      
-        <img src="Images/Certificates/.cert-badge.Certified.Education.Cloud.Consultant.jpg " id="Salesforce Certified Education Cloud Consultant" style="display: none;">
-     
-        <img src="Images/Certificates/.cert-badge.Certified.Heroku.Architecture.Designer.png" id="Salesforce Certified Heroku Architecture Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
-     
-        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
-        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
-        <img src="Images/Certificates/Salesforce Certified B2C Commerce Architect.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Developer.jpg" id="Salesforce Certified B2C Commerce Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Technical.Solution.Designer.jpg" id="Salesforce Certified B2C Technical Solution Designer" style="display: none;">
-       
-
-      <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id="Certified Administrator" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator.jpg" id="Certified Advanced Administrator" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Advanced.Developer.jpg" id="Certified Advanced Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Developer.jpg" id="Certified Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Sales.Consultant.jpg" id="Certified Sales Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Service.Consultant.jpg" id="Certified Service Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Technical.Architect.jpg" id="Certified Technical Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.System.Architect.jpg" id="Certified System Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Application.Architect.jpg" id="Certified Application Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Pardot.Consultant.jpg" id="Certified Pardot Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Pardot.User.jpg" id="Certified Pardot User" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.App.Builder.jpg" id="Certified App Builder" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Email.Specialist.jpg" id="Certified Marketing Cloud Email Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Social.Specialist.jpg" id="Certified Marketing Cloud Social Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Programmer.I.jpg" id="Certified Programmer I" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Programmer.II.jpg" id="Certified Programmer II" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id="Certified Data Architecture and Management Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist.jpg" id="Certified Development Lifecycle and Deployment Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Integration.Architecture.Specialist.jpg" id="Certified Integration Architecture Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Consultant.jpg" id="Certified Marketing Cloud Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Sharing.and.Visibility.Designer.jpg" id="Certified Sharing and Visibility Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Identity.and.Access.Management.Designer.jpg" id="Certified Identity and Access Management Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Mobile.Solutions.Architecture.Designer.jpg" id="Certified Mobile Solutions Architecture Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Community.Cloud.Consultant.jpg" id="Certified Community Cloud Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.CPQ.Specialist.jpg" id="Certified CPQ Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id="Certified Field Service Lightning Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Commerce.Cloud.Digital.Developer.jpg" id="Certified Commerce Cloud Digital Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Accredited.Sales.Professional.jpg" id="Accredited Sales Professional" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Accredited.Presales.Professional.jpg" id="Accredited Presales Professional" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Nonprofit.Cloud.Consultant.jpg" id="Certified Nonprofit Cloud Consultant" style="display: none;">--%>
-
-
-       <%-- <img src="Images/Certificates/.cert-badge.Certified.Administrator.jpg" id=".cert-badge.Certified.Administrator" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator.jpg" id=".cert-badge.Certified.Advanced.Administrator" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Advanced.Developer.jpg" id=".cert-badge.Certified.Advanced.Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Developer.jpg" id=".cert-badge.Certified.Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Sales.Consultant.jpg" id=".cert-badge.Certified.Sales.Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Service.Consultant.jpg" id=".cert-badge.Certified.Service.Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Technical.Architect.jpg" id=".cert-badge.Certified.Technical.Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.System.Architect.jpg" id=".cert-badge.Certified.System.Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Application.Architect.jpg" id=".cert-badge.Certified.Application.Architect" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Pardot.Consultant.jpg" id=".cert-badge.Certified.Pardot.Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Pardot.User.jpg" id=".cert-badge.Certified.Pardot.User" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.App.Builder.jpg" id=".cert-badge.Certified.App.Builder" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Email.Specialist.jpg" id=".cert-badge.Certified.Marketing.Cloud.Email.Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Social.Specialist.jpg" id=".cert-badge.Certified.Marketing.Cloud.Social.Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Programmer.I.jpg" id=".cert-badge.Certified.Programmer.I" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Programmer.II.jpg" id=".cert-badge.Certified.Programmer.II" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist.jpg" id=".cert-badge.Certified.Data.Architecture.and.Management.Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist.jpg" id=".cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Integration.Architecture.Specialist.jpg" id=".cert-badge.Certified.Integration.Architecture.Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Consultant.jpg" id=".cert-badge.Certified.Marketing.Cloud.Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Sharing.and.Visibility.Designer.jpg" id=".cert-badge.Certified.Sharing.and.Visibility.Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Identity.and.Access.Management.Designer.jpg" id=".cert-badge.Certified.Identity.and.Access.Management.Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Mobile.Solutions.Architecture.Designer.jpg" id=".cert-badge.Certified.Mobile.Solutions.Architecture.Designer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Community.Cloud.Consultant.jpg" id=".cert-badge.Certified.Community.Cloud.Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.CPQ.Specialist.jpg" id=".cert-badge.Certified.CPQ.Specialist" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant.jpg" id=".cert-badge.Certified.Field.Service.Lightning.Consultant" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Certified.Commerce.Cloud.Digital.Developer.jpg" id=".cert-badge.Certified.Commerce.Cloud.Digital.Developer" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Accredited.Sales.Professional.jpg" id=".cert-badge.Accredited.Sales.Professional" style="display: none;">
-        <img src="Images/Certificates/.cert-badge.Accredited.Presales.Professional.jpg" id=".cert-badge.Accredited.Presales.Professional" style="display: none;">--%>
-
-
-
-       <%-- <div class="cert-badge-certified-commerce-cloud-digital-developer" id=".cert.badge.certified.commerce.cloud.digital.developer" style="display: none;"></div>
-        <div class="cert-badge-certified-administrator"  id=".cert.badge.certified.administrator" style="display: none;"></div>
-        <div class="cert-badge-certified-advanced-administrator"  id=".cert-badge.certified.advanced.administrator" style="display: none;"></div>
-        <div class="cert-badge-certified-app-builder"  id=".cert.badge.certified.app.builder" style="display: none;"></div>
-        <div class="cert-badge-certified-cpq-specialist"  id=".cert.badge.certified.cpq.specialist" style="display: none;"></div>
-        <div class="cert-badge-certified-development-lifecycle-and-deployment-specialist" id=".cert.badge.certified.development.lifecycle.and.deployment.specialist" style="display: none;"></div>
-        <div class="cert-badge-certified-field-service-lightning-consultant" id=".cert.badge.certified.field.service.lightning.consultant" style="display: none;"></div>
-        <div class="cert-badge-certified-integration-architecture-specialist" id=".cert.badge.certified.integration.architecture.specialist" style="display: none;"></div>
-        <div class="cert-badge-certified-marketing-cloud-email-specialist" id=".cert.badge.certified.marketing.cloud.email.specialist" style="display: none;"></div>
-        <div class="cert-badge-certified-pardot-consultant" id=".cert.badge.certified.pardot.consultant" style="display: none;"></div>
-        <div class="cert-badge-certified-pardot-user" id=".cert.badge.certified.pardot.user" style="display: none;"></div>
-        <div class="cert-badge-certified-sales-consultant" id=".cert.badge.certified.sales.consultant" style="display: none;"></div>
-        <div class="cert-badge-certified-service-consultant" id=".cert.badge.certified.service.consultant" style="display: none;"></div>
-        <div class="cert-badge-accredited-presales-professional" id=".cert.badge.accredited.presales.professional" style="display: none;"></div>
-        <div class="cert-badge-accredited-sales-professional" id=".cert.badge.accredited.sales.professional" style="display: none;"></div>
-        <div class="cert-badge-certified-advanced-developer" id=".cert.badge.certified.advanced.developer" style="display: none;"></div>
-        <div class="cert-badge-certified-application-architect" id=".cert.badge.certified.application.architect" style="display: none;"></div>
-        <div class="cert-badge-certified-community-cloud-consultant" id=".cert.badge.certified.community.cloud.consultant" style="display: none;"></div>
-        <div class="cert-badge-certified-data-architecture-and-management-specialist" id=".cert.badge.certified.data.architecture.and.management.specialist" style="display: none;"></div>
-        <div class="cert-badge-certified-developer" id=".cert.badge.certified.developer" style="display: none;"></div>
-        <div class="cert-badge-certified-identity-and-access-management-designer" id=".cert.badge.certified.identity.and.access.management.designer" style="display: none;"></div>
-        <div class="cert-badge-certified-marketing-cloud-consultant" id=".cert.badge.certified.marketing.cloud.consultant" style="display: none;"></div>
-        <div class="cert-badge-certified-marketing-cloud-social-specialist" id=".cert.badge.certified.marketing.cloud.social.specialist" style="display: none;"></div>
-        <div class="cert-badge-certified-mobile-solutions-architecture-designer" id=".cert.badge.certified.mobile.solutions.architecture.designer" style="display: none;"></div>
-        <div class="cert-badge-certified-programmer-i" id=".cert.badge.certified.programmer.i" style="display: none;"></div>
-        <div class="cert-badge-certified-programmer-ii" id=".cert.badge.certified.programmer.ii" style="display: none;"></div>
-        <div class="cert-badge-certified-sharing-and-visibility-designer" id=".cert.badge.certified.sharing.and.visibility.designer" style="display: none;"></div>
-        <div class="cert-badge-certified-system-architect" id=".cert.badge.certified.system.architect" style="display: none;"></div>
-        <div class="cert-badge-certified-technical-architect" id=".cert.badge.certified.technical.architect" style="display: none;"></div>--%>
-
+        <img src="Images/Certificates/.cert-badge.Certified.Administrator-min.jpg" id="Salesforce Certified Administrator" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Advanced.Administrator-min.jpg" id="Salesforce Certified Advanced Administrator" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Sales.Consultant-min.jpg" id="Salesforce Certified Sales Cloud Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Service.Consultant-min.jpg" id="Salesforce Certified Service Cloud Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Technical.Architect-min.jpg" id="Salesforce Certified Technical Architect" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.System.Architect-min.jpg" id="Salesforce Certified System Architect" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Application.Architect-min.jpg" id="Salesforce Certified Application Architect" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Pardot.Consultant-min.jpg" id="Salesforce Certified Pardot Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Pardot.User-min.jpg" id="Salesforce Certified Pardot Specialist" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.App.Builder-min.jpg" id="Salesforce Certified Platform App Builder" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Email.Specialist-min.jpg" id="Salesforce Certified Marketing Cloud Email Specialist" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Social.Specialist-min.jpg" id="Certified Marketing Cloud Social Specialist" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Programmer.I-min.jpg" id="Salesforce Certified Platform Developer I" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Programmer.II-min.jpg" id="Salesforce Certified Platform Developer II" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist-min.jpg" id="Salesforce Certified Data Architecture & Management Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Data.Architecture.and.Management.Specialist-min.jpg" id="Salesforce Certified Data Architecture and Management Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Development.Lifecycle.and.Deployment.Specialist-min.jpg" id="Salesforce Certified Development Lifecycle and Deployment Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Integration.Architecture.Specialist-min.jpg" id="Salesforce Certified Integration Architecture Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Consultant-min.jpg" id="Salesforce Certified Marketing Cloud Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Marketing.Cloud.Developer-min.jpg" id="Salesforce Certified Marketing Cloud Developer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Sharing.and.Visibility.Designer-min.jpg" id="Salesforce Certified Sharing and Visibility Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Identity.and.Access.Management.Designer-min.jpg" id="Salesforce Certified Identity and Access Management Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Mobile.Solutions.Architecture.Designer-min.jpg" id="Salesforce Certified Mobile Solutions Architecture Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Community.Cloud.Consultant-min.jpg" id="Salesforce Certified Community Cloud Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.CPQ.Specialist-min.jpg" id="Salesforce Certified CPQ Specialist" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Accredited.Sales.Professional-min.jpg" id="Accredited Sales Professional" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Accredited.Presales.Professional-min.jpg" id="Accredited Presales Professional" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Nonprofit.Cloud.Consultant-min.jpg" id="Salesforce Certified Nonprofit Cloud Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant-min.jpg" id="Salesforce Certified Field Service Lightning" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Field.Service.Lightning.Consultant-min.jpg" id="Salesforce Certified Field Service Lightning Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Einstein.Analytics.Discovery.Consultant-min.png" id="Salesforce Certified Einstein Analytics and Discovery Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Education.Cloud.Consultant-min.jpg " id="Salesforce Certified Education Cloud Consultant" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Heroku.Architecture.Designer-min.png" id="Salesforce Certified Heroku Architecture Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Salesforce.Certified.Marketing.Cloud.Administrator-min.jpg" id="Salesforce Certified Marketing Cloud Administrator" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Developer-min.jpg" id="Salesforce Certified B2C Commerce Developer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.B2C.Commerce.Technical.Solution.Designer-min.jpg" id="Salesforce Certified B2C Technical Solution Designer" style="display: none;">
+        <img src="Images/Certificates/.cert-badge.Certified.Salesforce Certified JavaScript Developer I-min.png" id="Salesforce Certified JavaScript Developer I" style="display: none;">
+        <img src="Images/Certificates/.cert.badge.Salesforce.Certified B2C.Commerce Architect-min.png" id="Salesforce Certified B2C Commerce Architect" style="display: none;">
+        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Developer-min.png" id="Salesforce Accredited B2B Commerce Developer" style="display: none;">
+        <img src="Images/Certificates/Salesforce Accredited B2B Commerce Administrator-min.png" id="Salesforce Accredited B2B Commerce Administrator" style="display: none;">
 
 
         <script src="Scripts/fabric.min.js" type="text/javascript"></script>
