@@ -44,7 +44,12 @@ Public Class Generador
     End Function
 
 
-    Public Function getFabricJsScript(ByVal emailInput As String, ByVal sourceInput As String, ByVal imageBacgroundIndexInput As String, ByVal isFreeSelectedIndex As String, ByVal idSalesforceInput As String, ByVal isDatabaseQuery As Boolean, ByVal selectedColor As String) As Profile
+    Public Function getFabricJsScript(ByVal emailInput As String, ByVal sourceInput As String,
+                                      ByVal imageBacgroundIndexInput As String, ByVal isFreeSelectedIndex As String,
+                                      ByVal idSalesforceInput As String,
+                                      ByVal isDatabaseQuery As Boolean,
+                                      ByVal selectedColor As String,
+                                      ByVal certificadoEncabezado As DatumJson) As Profile
         'Dim dbd As DataBase = New DataBase()
         'dbd.normalizarHeader()
 
@@ -72,13 +77,17 @@ Public Class Generador
             'System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
             'getDataHeaderNamesHtmlV5(profileResponse)
 
-            getDataHeaderJsonV4(profileResponse)
+            'Este metodo se uso hasta el 18 12 de 2020 cuando salesforce puso captcha al servicio:
+            'getDataHeaderJsonV4(profileResponse)
+
+            getDataHeaderJsonV5(profileResponse, certificadoEncabezado)
+
         Catch ex As Exception
             db.insertHistorico(ex.Message, "", "", "", "", email, idSalesforce, source)
         End Try
 
         Dim scriptSalesforce As String = ""
-      
+
         scriptSalesforce += "  $(function () {"
         scriptSalesforce += "      $('#myWhatsAppButton').floatingWhatsApp({"
         scriptSalesforce += "                    phone:  '34662214870',"
@@ -98,7 +107,7 @@ Public Class Generador
         scriptSalesforce += " var imgInstanceBack;"
         scriptSalesforce += " var shadowText1;"
         'scriptSalesforce += " var imgInstanceGrid;"
-    
+
         scriptSalesforce += " function codeAddress() {"
         scriptSalesforce += configurationPositionCertifiedScript
         scriptSalesforce += "  /*canvas = new fabric.Canvas('c', {"
@@ -117,7 +126,7 @@ Public Class Generador
         scriptSalesforce += " var imgElement;"
         scriptSalesforce += " var imgInstance;"
 
-     
+
         scriptSalesforce += "var color = 'rgba(255,255,255,1)';"
         If isFreeSelectedIndex Then
             scriptSalesforce += "var imagenBack = document.getElementById(""imageSelected"").options[document.getElementById(""imageSelected"").selectedIndex].value;"
@@ -234,6 +243,69 @@ Public Class Generador
         Return profileResponse
 
     End Function
+
+    Public Function getDataHeaderJsonV5(ByRef profileResponse As Profile, ByVal certificadoEncabezado As DatumJson)
+
+
+
+        Dim AuthorList As New List(Of Profile)()
+        Dim tmpResponse As String = ""
+
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
+
+        Dim db As DataBase = New DataBase()
+
+
+    
+        Dim perfil As New Profile
+        perfil.cName = certificadoEncabezado.Name
+        perfil.cCity = certificadoEncabezado.City
+        perfil.cState = certificadoEncabezado.State
+        perfil.cCountry = certificadoEncabezado.Country
+
+        Dim certificacionDetail As RelatedCertificationStatus = certificadoEncabezado.RelatedCertificationStatus
+        Dim certificacionDetailRecord As List(Of Record) = certificacionDetail.records
+
+        perfil.cCertificates = certificacionDetail.totalSize
+        perfil.cLink = idSalesforce
+
+        accreditedNumber = 0 'PENDIENTE
+        certificatesNumber = certificacionDetail.totalSize
+        contadorCertificates = certificacionDetail.totalSize
+
+        'Borra de la base de datos el detalle de certificados
+        'db.deleteDetail(email)
+
+        'Consultar si tenia un link anterior
+        'Dim dsCurrentRecord As DataSet = db.selectHeader(email)
+        'Dim dtCurrentRecord As DataTable = dsCurrentRecord.Tables(0)
+        'For Each row As DataRow In dtCurrentRecord.Rows
+        '    perfil.cLink = row.Field(Of String)("link")
+        'Next
+
+        Dim Sql As String = ""
+        Dim contadorBadges = 0
+        imagesCertifiedScript = ""
+        For Each certificate In certificacionDetailRecord
+            contadorBadges += 1
+            imagesCertifiedScript += getImageFabricJSString(certificate.ExternalCertificationTypeName, contadorBadges)
+            'Sql += db.createSqlInsertDetail(email, certificate.ExternalCertificationTypeName, certificate.CertificationDate, certificate.RelatedCertificationType.Image, perfil.cLink)
+        Next
+
+        'db.insertHeader(perfil.cName, perfil.cCity, perfil.cState, perfil.cCountry, perfil.cCertificates, email, perfil.cLink, source)
+        'db.insertDetail(Sql, email)
+        db.insertHistorico(perfil.cName, perfil.cCity, perfil.cState, perfil.cCountry, perfil.cCertificates, email, idSalesforce, source)
+
+        profileResponse = perfil
+        configurationPositionCertifiedScript = getPositionScript(contadorCertificates)
+
+        'Next
+
+
+
+    End Function
+
 
     Public Function getDataHeaderJsonV4(ByRef profileResponse As Profile)
         Dim AuthorList As New List(Of Profile)()
@@ -1091,7 +1163,7 @@ Public Class Generador
 
 
             Case 1
-                scriptSalesforce += "  var initialPositionXOriginal = 420;"
+                scriptSalesforce += "  var initialPositionXOriginal = 400;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
                 scriptSalesforce += "  var initialPositionYOriginal = 90;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
@@ -1101,195 +1173,445 @@ Public Class Generador
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
             Case 2
-                scriptSalesforce += "  var initialPositionXOriginal = 250;"
+                scriptSalesforce += "  var initialPositionXOriginal = 80;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 120;"
+                scriptSalesforce += "  var initialPositionYOriginal = 65;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.8;"
-                scriptSalesforce += "  var scaleY = 0.8;"
-                scriptSalesforce += "  var separation = 400;"
+                scriptSalesforce += "  var scaleX = 1;"
+                scriptSalesforce += "  var scaleY = 1;"
+                scriptSalesforce += "  var separation = 620;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
             Case 3
-                scriptSalesforce += "  var initialPositionXOriginal = 180;"
+                scriptSalesforce += "  var initialPositionXOriginal = 120;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 120;"
+                scriptSalesforce += "  var initialPositionYOriginal = 80;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.7;"
-                scriptSalesforce += "  var scaleY = 0.7;"
+                scriptSalesforce += "  var scaleX = 1;"
+                scriptSalesforce += "  var scaleY = 1;"
                 scriptSalesforce += "  var separation = 300;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
             Case 4
-                scriptSalesforce += "  var initialPositionXOriginal = 40;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 120;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.6;"
-                scriptSalesforce += "  var scaleY = 0.6;"
-                scriptSalesforce += "  var separation = 300;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 5
-                scriptSalesforce += "  var initialPositionXOriginal = 40;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 120;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.6;"
-                scriptSalesforce += "  var scaleY = 0.6;"
-                scriptSalesforce += "  var separation = 230;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 6
-                scriptSalesforce += "  var initialPositionXOriginal = 30;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 130;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.5;"
-                scriptSalesforce += "  var scaleY = 0.5;"
-                scriptSalesforce += "  var separation = 190;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 7
-                scriptSalesforce += "  var initialPositionXOriginal = 30;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 90;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.5;"
-                scriptSalesforce += "  var scaleY = 0.5;"
-                scriptSalesforce += "  var separation = 240;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 8
-                scriptSalesforce += "  var initialPositionXOriginal = 30;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 90;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.5;"
-                scriptSalesforce += "  var scaleY = 0.5;"
-                scriptSalesforce += "  var separation = 240;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 9
-                scriptSalesforce += "  var initialPositionXOriginal = 30;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 90;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.5;"
-                scriptSalesforce += "  var scaleY = 0.5;"
-                scriptSalesforce += "  var separation = 240;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 10
-                scriptSalesforce += "  var initialPositionXOriginal = 30;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 90;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.5;"
-                scriptSalesforce += "  var scaleY = 0.5;"
-                scriptSalesforce += "  var separation = 240;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 11
-                scriptSalesforce += "  var separation = 200;"
-                scriptSalesforce += "  var initialPositionXOriginal = 120;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 90;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.45;"
-                scriptSalesforce += "  var scaleY = 0.45;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 12
-                scriptSalesforce += "  var separation = 200;"
                 scriptSalesforce += "  var initialPositionXOriginal = 20;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
                 scriptSalesforce += "  var initialPositionYOriginal = 90;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.45;"
-                scriptSalesforce += "  var scaleY = 0.45;"
+                scriptSalesforce += "  var scaleX = 1;"
+                scriptSalesforce += "  var scaleY = 1;"
+                scriptSalesforce += "  var separation = 270;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 13
-                scriptSalesforce += "  var separation = 160;"
-                scriptSalesforce += "  var initialPositionXOriginal = 120;"
+            Case 5
+                scriptSalesforce += "  var initialPositionXOriginal = 5;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
                 scriptSalesforce += "  var initialPositionYOriginal = 90;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.4;"
-                scriptSalesforce += "  var scaleY = 0.4;"
+                scriptSalesforce += "  var scaleX = 0.9;"
+                scriptSalesforce += "  var scaleY = 0.9;"
+                scriptSalesforce += "  var separation = 220;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 14
-                scriptSalesforce += "  var separation = 160;"
-                scriptSalesforce += "  var initialPositionXOriginal = 50;"
+            Case 6
+                scriptSalesforce += "  var initialPositionXOriginal = 5;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
                 scriptSalesforce += "  var initialPositionYOriginal = 90;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.4;"
-                scriptSalesforce += "  var scaleY = 0.4;"
+                scriptSalesforce += "  var scaleX = 0.75;"
+                scriptSalesforce += "  var scaleY = 0.75;"
+                scriptSalesforce += "  var separation = 190;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 15
-                scriptSalesforce += "  var separation = 140;"
-                scriptSalesforce += "  var initialPositionXOriginal = 100;"
+            Case 7
+                scriptSalesforce += "  var initialPositionXOriginal = 10;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 90;"
+                scriptSalesforce += "  var initialPositionYOriginal = 30;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.38;"
-                scriptSalesforce += "  var scaleY = 0.38;"
+                scriptSalesforce += "  var scaleX = 0.65;"
+                scriptSalesforce += "  var scaleY = 0.65;"
+                scriptSalesforce += "  var separation = 240;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
-            Case 16
-                scriptSalesforce += "  var separation = 140;"
-                scriptSalesforce += "  var initialPositionXOriginal = 50;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 90;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.38;"
-                scriptSalesforce += "  var scaleY = 0.38;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-
-            Case 17 To 24
-                scriptSalesforce += "  var separation = 140;"
-                scriptSalesforce += "  var initialPositionXOriginal = 50;"
-                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 70;"
-                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.38;"
-                scriptSalesforce += "  var scaleY = 0.38;"
-                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
-                scriptSalesforce += "  var incrementoPosicionY = 0;"
-
-            Case 25 To 30
-                scriptSalesforce += "  var separation = 130;"
-                scriptSalesforce += "  var initialPositionXOriginal = 25;"
+            Case 8
+                scriptSalesforce += "  var initialPositionXOriginal = 10;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
                 scriptSalesforce += "  var initialPositionYOriginal = 60;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.34;"
-                scriptSalesforce += "  var scaleY = 0.34;"
+                scriptSalesforce += "  var scaleX = 0.60;"
+                scriptSalesforce += "  var scaleY = 0.60;"
+                scriptSalesforce += "  var separation = 240;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
-
-            Case 31 To 35
-                scriptSalesforce += "  var separation = 115;"
-                scriptSalesforce += "  var initialPositionXOriginal = 27;"
+            Case 9
+                scriptSalesforce += "  var initialPositionXOriginal = 10;"
                 scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
-                scriptSalesforce += "  var initialPositionYOriginal = 55;"
+                scriptSalesforce += "  var initialPositionYOriginal = 60;"
                 scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
-                scriptSalesforce += "  var scaleX = 0.30;"
-                scriptSalesforce += "  var scaleY = 0.30;"
+                scriptSalesforce += "  var scaleX = 0.6;"
+                scriptSalesforce += "  var scaleY = 0.6;"
+                scriptSalesforce += "  var separation = 240;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 10
+                scriptSalesforce += "  var initialPositionXOriginal = 10;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 60;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.6;"
+                scriptSalesforce += "  var scaleY = 0.6;"
+                scriptSalesforce += "  var separation = 240;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 11
+                scriptSalesforce += "  var initialPositionXOriginal = 100;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 60;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.65;"
+                scriptSalesforce += "  var scaleY = 0.65;"
+                scriptSalesforce += "  var separation = 200;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 12
+                scriptSalesforce += "  var initialPositionXOriginal = 10;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 60;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.55;"
+                scriptSalesforce += "  var scaleY = 0.55;"
+                scriptSalesforce += "  var separation = 200;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 13
+                scriptSalesforce += "  var initialPositionXOriginal = 100;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 60;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.55;"
+                scriptSalesforce += "  var scaleY = 0.55;"
+                scriptSalesforce += "  var separation = 150;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 14
+                scriptSalesforce += "  var initialPositionXOriginal = 30;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 70;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.55;"
+                scriptSalesforce += "  var scaleY = 0.55;"
+                scriptSalesforce += "  var separation = 160;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 15
+                scriptSalesforce += "  var initialPositionXOriginal = 70;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 70;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.55;"
+                scriptSalesforce += "  var scaleY = 0.55;"
+                scriptSalesforce += "  var separation = 140;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 16
+                scriptSalesforce += "  var initialPositionXOriginal = 20;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 70;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.55;"
+                scriptSalesforce += "  var scaleY = 0.55;"
+                scriptSalesforce += "  var separation = 140;"
                 scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
                 scriptSalesforce += "  var incrementoPosicionY = 0;"
 
+            Case 17 To 19
+                scriptSalesforce += "  var initialPositionXOriginal = 5;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 70;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.55;"
+                scriptSalesforce += "  var scaleY = 0.55;"
+                scriptSalesforce += "  var separation = 120;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+
+            Case 20
+                scriptSalesforce += "  var initialPositionXOriginal = 5;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 70;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.52;"
+                scriptSalesforce += "  var scaleY = 0.52;"
+                scriptSalesforce += "  var separation = 115;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+
+            Case 21 To 26
+                scriptSalesforce += "  var initialPositionXOriginal = 5;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 3;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.52;"
+                scriptSalesforce += "  var scaleY = 0.52;"
+                scriptSalesforce += "  var separation = 116;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 27
+                scriptSalesforce += "  var initialPositionXOriginal = 5;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 3;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.5;"
+                scriptSalesforce += "  var scaleY = 0.5;"
+                scriptSalesforce += "  var separation = 110;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 28 To 30
+                scriptSalesforce += "  var initialPositionXOriginal = 8;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 10;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.45;"
+                scriptSalesforce += "  var scaleY = 0.45;"
+                scriptSalesforce += "  var separation = 95;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
+            Case 31 To 40
+                scriptSalesforce += "  var initialPositionXOriginal = 5;"
+                scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+                scriptSalesforce += "  var initialPositionYOriginal = 3;"
+                scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+                scriptSalesforce += "  var scaleX = 0.42;"
+                scriptSalesforce += "  var scaleY = 0.42;"
+                scriptSalesforce += "  var separation = 110;"
+                scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+                scriptSalesforce += "  var incrementoPosicionY = 0;"
         End Select
 
-
-
-
         Return scriptSalesforce
+
+
+    End Function
+
+
+    Public Function getPositionScriptOld(totalCertificates As Integer) As String
+
+        'Dim scriptSalesforce As String = ""
+
+        'Select Case contadorCertificates
+
+
+
+        '    Case 1
+        '        scriptSalesforce += "  var initialPositionXOriginal = 420;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 1;"
+        '        scriptSalesforce += "  var scaleY = 1;"
+        '        scriptSalesforce += "  var separation = 0;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 2
+        '        scriptSalesforce += "  var initialPositionXOriginal = 250;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 120;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.8;"
+        '        scriptSalesforce += "  var scaleY = 0.8;"
+        '        scriptSalesforce += "  var separation = 400;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 3
+        '        scriptSalesforce += "  var initialPositionXOriginal = 180;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 120;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.7;"
+        '        scriptSalesforce += "  var scaleY = 0.7;"
+        '        scriptSalesforce += "  var separation = 300;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 4
+        '        scriptSalesforce += "  var initialPositionXOriginal = 40;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 120;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.6;"
+        '        scriptSalesforce += "  var scaleY = 0.6;"
+        '        scriptSalesforce += "  var separation = 300;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 5
+        '        scriptSalesforce += "  var initialPositionXOriginal = 40;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 120;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.6;"
+        '        scriptSalesforce += "  var scaleY = 0.6;"
+        '        scriptSalesforce += "  var separation = 230;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 6
+        '        scriptSalesforce += "  var initialPositionXOriginal = 30;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 130;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.5;"
+        '        scriptSalesforce += "  var scaleY = 0.5;"
+        '        scriptSalesforce += "  var separation = 190;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 7
+        '        scriptSalesforce += "  var initialPositionXOriginal = 30;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.5;"
+        '        scriptSalesforce += "  var scaleY = 0.5;"
+        '        scriptSalesforce += "  var separation = 240;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 8
+        '        scriptSalesforce += "  var initialPositionXOriginal = 30;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.5;"
+        '        scriptSalesforce += "  var scaleY = 0.5;"
+        '        scriptSalesforce += "  var separation = 240;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 9
+        '        scriptSalesforce += "  var initialPositionXOriginal = 30;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.5;"
+        '        scriptSalesforce += "  var scaleY = 0.5;"
+        '        scriptSalesforce += "  var separation = 240;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 10
+        '        scriptSalesforce += "  var initialPositionXOriginal = 30;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.5;"
+        '        scriptSalesforce += "  var scaleY = 0.5;"
+        '        scriptSalesforce += "  var separation = 240;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 11
+        '        scriptSalesforce += "  var separation = 200;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 120;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.45;"
+        '        scriptSalesforce += "  var scaleY = 0.45;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 12
+        '        scriptSalesforce += "  var separation = 200;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 20;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.45;"
+        '        scriptSalesforce += "  var scaleY = 0.45;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 13
+        '        scriptSalesforce += "  var separation = 160;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 120;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.4;"
+        '        scriptSalesforce += "  var scaleY = 0.4;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 14
+        '        scriptSalesforce += "  var separation = 160;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 50;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.4;"
+        '        scriptSalesforce += "  var scaleY = 0.4;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 15
+        '        scriptSalesforce += "  var separation = 140;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 100;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.38;"
+        '        scriptSalesforce += "  var scaleY = 0.38;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+        '    Case 16
+        '        scriptSalesforce += "  var separation = 140;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 50;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 90;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.38;"
+        '        scriptSalesforce += "  var scaleY = 0.38;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+
+        '    Case 17 To 24
+        '        scriptSalesforce += "  var separation = 140;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 50;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 70;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.38;"
+        '        scriptSalesforce += "  var scaleY = 0.38;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+
+        '    Case 25 To 30
+        '        scriptSalesforce += "  var separation = 130;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 25;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 60;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.34;"
+        '        scriptSalesforce += "  var scaleY = 0.34;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+
+        '    Case 31 To 35
+        '        scriptSalesforce += "  var separation = 115;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 27;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 55;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.30;"
+        '        scriptSalesforce += "  var scaleY = 0.30;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+
+        '    Case 36 To 40
+        '        scriptSalesforce += "  var separation = 115;"
+        '        scriptSalesforce += "  var initialPositionXOriginal = 27;"
+        '        scriptSalesforce += "  var initialPositionX = initialPositionXOriginal;"
+        '        scriptSalesforce += "  var initialPositionYOriginal = 55;"
+        '        scriptSalesforce += "  var initialPositionY = initialPositionYOriginal;"
+        '        scriptSalesforce += "  var scaleX = 0.30;"
+        '        scriptSalesforce += "  var scaleY = 0.30;"
+        '        scriptSalesforce += "  var total = " + contadorCertificates.ToString + ";"
+        '        scriptSalesforce += "  var incrementoPosicionY = 0;"
+
+        'End Select
+
+
+
+
+        'Return scriptSalesforce
 
 
     End Function
@@ -1317,28 +1639,37 @@ Public Class Generador
         'Select Case ContadorCertificates
         Select Case contadorCertificates
             Case 7
-                If contador Mod 5 = 0 Then
-                    'scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
-                    'scriptSalesforce += "       initialPositionX = initialPositionXOriginal + 320;"
 
-                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                If contador = 1 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 130;"
+                End If
+
+                If contador = 4 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY - 130;"
+                End If
+
+                If contador = 5 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 140;"
                     scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
                     scriptSalesforce += "       separation = 960;"
                     rowsImages += 1
                 End If
+
             Case 8
+
                 If contador Mod 5 = 0 Then
-                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 130;"
                     scriptSalesforce += "       initialPositionX = initialPositionXOriginal + separation;"
+                    rowsImages += 1
                 End If
             Case 9
                 If contador Mod 5 = 0 Then
-                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 130;"
                     scriptSalesforce += "       initialPositionX = initialPositionXOriginal + separation/2;"
                 End If
             Case 10
                 If contador Mod 5 = 0 Then
-                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 130;"
                     scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
                 End If
             Case 11
@@ -1356,7 +1687,7 @@ Public Class Generador
                 'If contador Mod 6 = 0 Then
                 If contador = 6 Then
                     scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
-                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal - initialPositionXOriginal/1.7;"
+                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal - initialPositionXOriginal/2;"
                 End If
             Case 14
                 If contador Mod 7 = 0 Then
@@ -1368,33 +1699,277 @@ Public Class Generador
                 'If contador Mod 7 = 0 Then
                 If contador = 7 Then
                     scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
-                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal - initialPositionXOriginal/2;"
+                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal - initialPositionXOriginal/1.5;"
                 End If
             Case 16
                 If contador Mod 8 = 0 Then
                     scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
                     scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
                 End If
-            Case 17 To 24
-                If contador Mod 8 = 0 Then
-                    scriptSalesforce += "       initialPositionY  = initialPositionY + 80;"
-                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
-                End If
-            Case 25 To 30
+            Case 17
                 If contador Mod 9 = 0 Then
-                    scriptSalesforce += "       initialPositionY  = initialPositionY + 80;"
-                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal + initialPositionXOriginal/0.1;"
                 End If
-            Case 31 To 35
-                If contador Mod 10 = 0 Then
-                    scriptSalesforce += "       initialPositionY  = initialPositionY + 65;"
-                    scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+            Case 18
+                If contador Mod 9 = 0 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal;"
+                End If
+            Case 19
+                If contador = 9 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal - initialPositionXOriginal/0.12;"
+                End If
+            Case 20
+                If contador = 10 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal;"
+                End If
+            Case 21 To 26
+                If contador = 3 Then
+                    scriptSalesforce += "       initialPositionX  = initialPositionX + 450;"
                 End If
 
+                If contador = 6 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 105;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal - initialPositionXOriginal/0.15;"
+                End If
+
+                Dim sumatoriaUltimaFila As String = ""
+
+                If contadorCertificates = 21 Then
+                    sumatoriaUltimaFila = "270"
+                End If
+
+                If contadorCertificates = 22 Then
+                    sumatoriaUltimaFila = "210"
+                End If
+
+                If contadorCertificates = 23 Then
+                    sumatoriaUltimaFila = "160"
+                End If
+
+                If contadorCertificates = 24 Then
+                    sumatoriaUltimaFila = "110"
+                End If
+
+                If contadorCertificates = 25 Then
+                    sumatoriaUltimaFila = "60"
+                End If
+
+                If contadorCertificates = 26 Then
+                    sumatoriaUltimaFila = "0"
+                End If
+
+
+                If contador = 16 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 105;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal + " + sumatoriaUltimaFila + ";"
+                End If
+            Case 27
+                If contador = 3 Then
+                    scriptSalesforce += "       initialPositionX  = initialPositionX + 470;"
+                End If
+
+                If contador = 6 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 105;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal - initialPositionXOriginal/0.15;"
+                End If
+
+                Dim sumatoriaUltimaFila As String = "0"
+
+                If contador = 17 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 105;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal + " + sumatoriaUltimaFila + ";"
+                End If
+
+            Case 28 To 30
+                If contador = 3 Then
+                    scriptSalesforce += "       initialPositionX  = initialPositionX + 550;"
+                End If
+
+                If contador = 6 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 100;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal;"
+                End If
+
+                Dim sumatoriaUltimaFila As String = "0"
+
+                If contadorCertificates = 28 Then
+                    sumatoriaUltimaFila = "100"
+                End If
+
+                If contadorCertificates = 29 Then
+                    sumatoriaUltimaFila = "50"
+                End If
+
+                If contadorCertificates = 30 Then
+                    sumatoriaUltimaFila = "0"
+                End If
+
+                If contador = 18 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 100;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal + " + sumatoriaUltimaFila + ";"
+                End If
+
+            Case 31 To 40
+                If contador = 3 Then
+                    scriptSalesforce += "       initialPositionX  = initialPositionX + 500;"
+                End If
+
+                If contador = 6 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 75;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal - initialPositionXOriginal/0.15;"
+                End If
+
+                If contador = 17 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 75;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal - initialPositionXOriginal/0.15;"
+                End If
+
+                Dim sumatoriaUltimaFila As String = "0"
+
+                If contadorCertificates = 31 Then
+                    sumatoriaUltimaFila = "420"
+                End If
+
+                If contadorCertificates = 32 Then
+                    sumatoriaUltimaFila = "350"
+                End If
+
+
+                If contadorCertificates = 33 Then
+                    sumatoriaUltimaFila = "280"
+                End If
+
+
+                If contadorCertificates = 34 Then
+                    sumatoriaUltimaFila = "220"
+                End If
+
+
+                If contadorCertificates = 35 Then
+                    sumatoriaUltimaFila = "170"
+                End If
+
+
+                If contadorCertificates = 36 Then
+                    sumatoriaUltimaFila = "110"
+                End If
+
+                If contadorCertificates = 37 Then
+                    sumatoriaUltimaFila = "40"
+                End If
+
+                If contador = 28 Then
+                    scriptSalesforce += "       initialPositionY  = initialPositionY + 80;"
+                    scriptSalesforce += "       initialPositionX  = initialPositionXOriginal + " + sumatoriaUltimaFila + ";"
+                End If
         End Select
 
 
         Return scriptSalesforce
+
+    End Function
+
+    Public Function getImageFabricJSStringOld(ByVal imagen As String, ByVal contador As Integer) As String
+        'Dim scriptSalesforce As String = ""
+
+
+        'scriptSalesforce += "imgElement = document.getElementById('" + imagen + "');"
+        'scriptSalesforce += "imgInstance = new fabric.Image(imgElement, {"
+        'scriptSalesforce += "  scaleY: scaleY,"
+        'scriptSalesforce += "  scaleX: scaleX,"
+
+        'scriptSalesforce += "  left: initialPositionX,"
+        'scriptSalesforce += "  top: initialPositionY"
+
+
+        'scriptSalesforce += " });"
+
+        'scriptSalesforce += "canvas.add(imgInstance);"
+        'scriptSalesforce += "initialPositionX +=  separation ;"
+
+
+        'Select Case contadorCertificates
+        '    Case 7
+        '        If contador Mod 5 = 0 Then
+
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '            scriptSalesforce += "       separation = 960;"
+        '            rowsImages += 1
+        '        End If
+        '    Case 8
+        '        If contador Mod 5 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal + separation;"
+        '        End If
+        '    Case 9
+        '        If contador Mod 5 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal + separation/2;"
+        '        End If
+        '    Case 10
+        '        If contador Mod 5 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '        End If
+        '    Case 11
+        '        If contador = 5 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal - 100;"
+        '        End If
+        '    Case 12
+        '        If contador Mod 6 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '        End If
+        '    Case 13
+        '        If contador = 6 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal - initialPositionXOriginal/1.7;"
+        '        End If
+        '    Case 14
+        '        If contador Mod 7 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal ;"
+        '        End If
+        '    Case 15
+        '        If contador = 7 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal - initialPositionXOriginal/2;"
+        '        End If
+        '    Case 16
+        '        If contador Mod 8 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 120;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '        End If
+        '    Case 17 To 24
+        '        If contador Mod 8 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 80;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '        End If
+        '    Case 25 To 30
+        '        If contador Mod 9 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 80;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '        End If
+        '    Case 31 To 35
+        '        If contador Mod 10 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 65;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '        End If
+        '    Case 36 To 40
+        '        If contador Mod 10 = 0 Then
+        '            scriptSalesforce += "       initialPositionY  = initialPositionY + 65;"
+        '            scriptSalesforce += "       initialPositionX = initialPositionXOriginal;"
+        '        End If
+        'End Select
+
+
+        'Return scriptSalesforce
 
     End Function
 

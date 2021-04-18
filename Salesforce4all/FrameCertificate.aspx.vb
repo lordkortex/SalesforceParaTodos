@@ -8,7 +8,7 @@
 
         Dim background As Integer = Request.QueryString("background")
 
-        Dim profileResponse As Profile = generatorService.getFabricJsScript(email, "IFrame", background, False, email, True, "")
+        Dim profileResponse As Profile = generatorService.getFabricJsScript(email, "IFrame", background, False, email, True, "", Nothing)
       
         ScriptManager.RegisterStartupScript(Page, Me.GetType(), "autocomplete", profileResponse.cScript, True)
     End Sub

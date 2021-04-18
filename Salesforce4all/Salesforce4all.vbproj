@@ -89,6 +89,7 @@
     <Content Include="About.html" />
     <Content Include="Artisans.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DefaultVersionOld.aspx" />
     <Content Include="Desarrollo.aspx" />
     <Content Include="FrameCertificate.aspx" />
     <Content Include="HtmlPage1.html" />
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultVersionOld.aspx.designer.vb">
+      <DependentUpon>DefaultVersionOld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultVersionOld.aspx.vb">
+      <DependentUpon>DefaultVersionOld.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Desarrollo.aspx.designer.vb">
       <DependentUpon>Desarrollo.aspx</DependentUpon>

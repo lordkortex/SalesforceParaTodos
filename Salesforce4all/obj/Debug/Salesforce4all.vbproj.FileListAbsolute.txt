@@ -9,3 +9,29 @@ e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce
 e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.pdb
 E:\archivos cortes moncada\mis documentos\Visual Studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.ResolveComReference.cache
 e:\archivos cortes moncada\mis documentos\visual studio 2012\Projects\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbprojResolveAssemblyReference.cache
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\bin\Salesforce4all.dll.config
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\bin\Salesforce4all.dll
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\bin\Salesforce4all.pdb
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\bin\Salesforce4all.xml
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbprojAssemblyReference.cache
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.ResolveComReference.cache
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.Resources.resources
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.GenerateResource.cache
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.CoreCompileInputs.cache
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.CopyComplete
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.dll
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.xml
+C:\Users\John Cortez\Desktop\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.pdb
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\bin\Salesforce4all.dll.config
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\bin\Salesforce4all.dll
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\bin\Salesforce4all.pdb
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\bin\Salesforce4all.xml
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbprojAssemblyReference.cache
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.ResolveComReference.cache
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.Resources.resources
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.GenerateResource.cache
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.CoreCompileInputs.cache
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.vbproj.CopyComplete
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.dll
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.xml
+C:\Users\John Cortez\source\repos\Salesforce4all\Salesforce4all\obj\Debug\Salesforce4all.pdb

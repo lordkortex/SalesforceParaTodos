@@ -79,6 +79,39 @@ Public Class _Default
 
 
 
+        Dim selectMultiValue As String = SelectMulti.Value
+
+        
+        Dim certificacionDetailRecordList As New List(Of Record)
+        For Each item As ListItem In SelectMulti.Items
+            If item.Selected Then
+                Dim certificacionDetailRecord As New Record
+                certificacionDetailRecord.ExternalCertificationTypeName = item.Value
+                certificacionDetailRecordList.Add(certificacionDetailRecord)
+            End If
+        Next
+
+
+
+        'Dim certificacionDetailRecordList As New List(Of Record)
+        'For Each item As ListItem In lstCertificados.Items
+        '    If item.Selected Then
+        '        Dim certificacionDetailRecord As New Record
+        '        certificacionDetailRecord.ExternalCertificationTypeName = item.Text
+        '        certificacionDetailRecordList.Add(certificacionDetailRecord)
+        '    End If
+        'Next
+
+        Dim certificacionDetail As New RelatedCertificationStatus
+        certificacionDetail.totalSize = certificacionDetailRecordList.Count
+        certificacionDetail.records = certificacionDetailRecordList
+
+        Dim certificadoEncabezado As New DatumJson
+        certificadoEncabezado.Name = "Default"
+        certificadoEncabezado.City = "Default"
+        certificadoEncabezado.State = "Default"
+        certificadoEncabezado.Country = "Default"
+        certificadoEncabezado.RelatedCertificationStatus = certificacionDetail
 
 
         Dim generatorService As New Generador
@@ -97,11 +130,11 @@ Public Class _Default
             ScriptManager.RegisterStartupScript(Page, Me.GetType(), "autocomplete", profileResponse.cScript, True)
         End If
 
-        If idSalesforce.Text = "" Then
-            LabelInputMessageValidation.Text = "id Salesforce is requiered"
-            Dim profileResponse As Profile = generatorService.goToDrawZone()
-            ScriptManager.RegisterStartupScript(Page, Me.GetType(), "autocomplete", profileResponse.cScript, True)
-        End If
+        'If idSalesforce.Text = "" Then
+        '    LabelInputMessageValidation.Text = "id Salesforce is requiered"
+        '    Dim profileResponse As Profile = generatorService.goToDrawZone()
+        '    ScriptManager.RegisterStartupScript(Page, Me.GetType(), "autocomplete", profileResponse.cScript, True)
+        'End If
 
         If LabelInputMessageValidation.Text = "" Then
 
@@ -110,7 +143,7 @@ Public Class _Default
             LiteralIframe.Text = textoIframe.Replace("XXXXXXXXXX", idSalesforce.Text)
 
 
-            Dim profileResponse As Profile = generatorService.getFabricJsScript(email.Text, source, imageSelected.SelectedIndex, False, idSalesforce.Text, False, TextBoxColor.Text)
+            Dim profileResponse As Profile = generatorService.getFabricJsScript(email.Text, source, imageSelected.SelectedIndex, False, idSalesforce.Text, False, TextBoxColor.Text, certificadoEncabezado)
             lblName.Text = profileResponse.cName
             lblCity.Text = profileResponse.cCity
             lblCountry.Text = profileResponse.cCountry
